@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \URL::forceScheme('https');
+//        このサイトにアクセスできません画面が表示されるためコメントアウト
+//        \URL::forceScheme('https');
     }
 }

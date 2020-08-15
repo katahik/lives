@@ -10,14 +10,20 @@
             {{--micropostsにはあったコード--}}
             {{--<ul class="navbar-nav mr-auto"></ul>--}}
             <ul class="navbar-nav container">
-                {{-- トップページへのリンク --}}
-                <li class="nav-item col-md-4"><a href="#" class="nav-link">探す</a></li>
-                {{-- 行ったライブへのリンク--}}
-                <li class="nav-item col-md-4"><a href="#" class="nav-link">行ったライブ</a></li>
-                {{-- ログインページへのリンク --}}
-                <li class="nav-item col-md-4"><a href="#" class="nav-link">ログイン</a></li>
-                {{-- 会員登録へのリンク --}}
-                <li>{!! link_to_route('signup.get', '会員登録', [], ['class' => 'nav-link']) !!}</li>
+                @if (Auth::check())
+                    {{-- トップページへのリンク --}}
+                    <li class="nav-item col-md-4"><a href="#" class="nav-link">探す</a></li>
+                    {{-- 行ったライブへのリンク--}}
+                    <li class="nav-item col-md-4"><a href="#" class="nav-link">行ったライブ</a></li>
+                @else
+                    <li class="nav-item col-md-4"><a href="#" class="nav-link">探す</a></li>
+                    {{-- 行ったライブへのリンク--}}
+                    <li class="nav-item col-md-4"><a href="#" class="nav-link">行ったライブ</a></li>
+                    {{-- ログインページへのリンク --}}
+                    <li class="nav-item col-md-4">{!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}</li>
+                    {{-- 会員登録へのリンク --}}
+                    <li class="nav-item col-md-4">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>
+                @endif
             </ul>
         </div>
     </nav>

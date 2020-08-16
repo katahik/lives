@@ -44,7 +44,6 @@ class User extends Authenticatable
 
 
 //    このユーザーが行ったライブ
-//    関数名は仮
     public function wentLive()
     {
         return $this->belongsToMany(Live::class, 'going', 'user_id', 'live_id')->withTimestamps();

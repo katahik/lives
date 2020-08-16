@@ -25,7 +25,7 @@ class CreateLivesTable extends Migration
             $table->string('url')->nullable();
 //            緯度経度は概算距離1m単位で算定するため、以下の桁数をとる
             $table->double('lat', 7, 5);
-            $table->double('lon',8,5);
+            $table->double('lng',8,5);
 //            admin_idは必須とする（もし、APIなどによるデータの取得であっても、なんらかの値をいれる）
             $table->unsignedBigInteger('admin_id');
             $table->timestamps();

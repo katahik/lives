@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome')->name('top');
+    return view('welcome');
 });
 
 //会員登録

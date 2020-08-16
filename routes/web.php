@@ -24,7 +24,9 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
-Route::post('result','LivesController')->name('lives.result');
+//検索結果表示
+//getでなくpostか
+Route::get('result','LivesController@index')->name('lives.result');
 
 
 Route::group(['middleware' => ['auth']], function () {

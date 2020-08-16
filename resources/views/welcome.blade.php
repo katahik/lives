@@ -3,14 +3,13 @@
 @section('content')
     <div class="center jumbotron">
         <div class="text-center">
-{{--            自分の位置情報と会場の位置情報で半径1kmのライブを検索する--}}
+{{--            自分の位置情報と会場の位置情報で半径3kmのライブを検索する--}}
             <a href="#">この周辺の今日のライブを探す</a>
         </div>
     </div>
     <div class="center jumbotron">
         <form>
             <div class="form-group input-group">
-                <!-- 左端につけるアクセサリ -->
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
@@ -19,7 +18,6 @@
         </form>
         <form>
             <div class="form-group input-group">
-                <!-- 左端につけるアクセサリ -->
                 <div class="input-group-prepend">
                     <span class="input-group-text">日にち</span>
                 </div>
@@ -29,7 +27,6 @@
         </form>
         <form>
             <div class="form-group input-group">
-                <!-- 左端につけるアクセサリ -->
                 <div class="input-group-prepend">
                     <span class="input-group-text">場所</span>
                 </div>
@@ -39,7 +36,6 @@
         </form>
         <form>
             <div class="form-group input-group">
-                <!-- 左端につけるアクセサリ -->
                 <div class="input-group-prepend">
                     <span class="input-group-text">カテゴリー</span>
                 </div>

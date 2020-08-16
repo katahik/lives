@@ -8,7 +8,7 @@
         <style>
             #target {
                 width: 550px;
-                height: 200px;
+                height: 800px;
             }
         </style>
     </head>
@@ -29,7 +29,7 @@
 
         </div>
 
-<!--        試しに東京を中心とする地図を作成-->
+<!--        試しに東京を中心とする地図を表示-->
         <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
         <script>
             function initMap(){

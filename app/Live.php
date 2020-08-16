@@ -9,8 +9,8 @@ class Live extends Model
     protected $fillable = [
         'title','date','venue','category','artist','min_price','max_price','url', 'lat','lon',
     ];
-//    このライブを入力したadmin
-    public function admin()
+//    このライブを入力したuser
+    public function user()
     {
         return $this->belongsTo(Admin::class);
     }

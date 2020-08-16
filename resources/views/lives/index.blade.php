@@ -1,54 +1,31 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>Lives</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <style>
-            #target {
-                width: 550px;
-                height: 800px;
-            }
-        </style>
-    </head>
+@extends('layouts.app')
 
-    <body>
+@section('content')
 
-        {{-- ナビゲーションバー --}}
-        @include('commons.navbar')
+<h1>ライブ一覧</h1>
 
-        <div class="container">
-            {{-- エラーメッセージ --}}
-            @include('commons.error_messages')
+<!--この画面内にて、チェックをつけたライブの削除ができるように-->
 
-            @yield('content')
-        </div>
-        <h1>maps</h1>
-        <div id="target">
+@if (count($lives) > 0)
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>メッセージ</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach ($lives as $live)
+    <tr>
+        <td>{!! link_to_route('lives.show', $live->id, ['live' => $live->id]) !!}</td>>
+        <td>{{ $live->title }}</td>
+    </tr>
+    @endforeach
+    </tbody>
+</table>
+@endif
 
-        </div>
+{{-- メッセージ作成ページへのリンク --}}
+{!! link_to_route('lives.create', '新規ライブの作成', [], ['class' => 'btn btn-primary']) !!}
 
-<!--        試しに東京を中心とする地図を表示-->
-        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
-        <script>
-            function initMap(){
-                'use strict';
-
-                var target = document.getElementById('target');
-                var map;
-                var tokyo = {lat: 35.681167,lng: 139.767052};
-
-                map = new google.maps.Map(target,{
-                    center: tokyo,
-                    zoom: 14,
-                });
-            }
-        </script>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
-    </body>
-</html>
+@endsection

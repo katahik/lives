@@ -14,7 +14,7 @@ class AddRoleToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->tinyInteger('role')->default(0)->after('password')->index('index_role')->comment('ロール');
+            $table->tinyInteger('role')->default(1)->after('password')->index('index_role')->comment('ロール');
         });
     }
 

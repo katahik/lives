@@ -5,12 +5,19 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav container">
                 @if (Auth::check())
-                    {{-- トップページへのリンク --}}
-                    <li class="nav-item col-md-4">{!!link_to_route('signup.get', '探す', [], ['class' => 'nav-link']) !!}</li>
-                    {{-- 行ったライブへのリンク--}}
-                    <li class="nav-item col-md-4">{!! link_to_route('users.show', '行ったライブ', ['user' => Auth::id()]) !!}</li>
-{{--                    ログアウトボタン--}}
-                    <li class="nav-item col-md-4">{!! link_to_route('logout', 'ログアウト', ['user' => Auth::id()]) !!}</li>
+                @can('system-only') {{-- システム管理者権限のみに表示される --}}
+{{--            ここにユーザー一覧リンクが入る--}}
+                <li><a href="">機能１</a></li>
+                @elsecan('admin-higher')　{{-- 管理者権限以上に表示される --}}
+{{--            ここにライブ一覧リンクが入る--}}
+                @elsecan('user-higher') {{-- 一般権限以上に表示される --}}
+                {{-- トップページへのリンク --}}
+                <li class="nav-item col-md-4">{!!link_to_route('signup.get', '探す', [], ['class' => 'nav-link']) !!}</li>
+                {{-- 行ったライブへのリンク--}}
+                <li class="nav-item col-md-4">{!! link_to_route('users.show', '行ったライブ', ['user' => Auth::id()]) !!}</li>
+                {{--ログアウトボタン--}}
+                <li class="nav-item col-md-4">{!! link_to_route('logout', 'ログアウト', ['user' => Auth::id()]) !!}</li>
+                @endcan
                 @else
                     {{-- トップページへのリンク --}}
                     <li class="nav-item col-md-4"><a href="/" class="nav-link">探す</a></li>

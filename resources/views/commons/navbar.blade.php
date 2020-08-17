@@ -5,20 +5,24 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav container">
                 @if (Auth::check())
-                @can('system-only') {{-- システム管理者権限のみに表示される --}}
+                    @can('system-only') {{-- システム管理者権限のみに表示される --}}
 {{--            ここにユーザー一覧リンクが入る--}}
-                    <li><a href="">ユーザー一覧</a></li>
-                @elsecan('admin-higher')　{{-- 管理者権限以上に表示される --}}
+{{--                    <li class="nav-item"><a class="nav-link" href="">ユーザー一覧</a></li>--}}
+                    <li class="nav-item">{!!link_to_route('users.index', 'ユーザー一覧', [],['class' => 'nav-link']) !!}</li>
+
+                    @endcan
+                    @can('admin-higher')　{{-- 管理者権限以上に表示される --}}
+                    <li class="nav-item"><a class="nav-link" href="">ライブ一覧</a></li>
 {{--            ここにライブ一覧リンクが入る--}}
-                    <li><a href="">ライブ一覧</a></li>
-                @elsecan('user-higher') {{-- 一般権限以上に表示される --}}
+                    @endcan
+                    @can('user-higher') {{-- 一般権限以上に表示される --}}
                 {{-- トップページへのリンク --}}
-                    <li class="nav-item col-md-4">{!!link_to_route('signup.get', '探す', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!!link_to_route('signup.get', '探す', [],['class' => 'nav-link']) !!}</li>
                 {{-- 行ったライブへのリンク--}}
-                    <li class="nav-item col-md-4">{!! link_to_route('users.show', '行ったライブ', ['user' => Auth::id()]) !!}</li>
+                    <li class="nav-item">{!! link_to_route('users.show', '行ったライブ', ['user' => Auth::id()],['class' => 'nav-link']) !!}</li>
                 {{--ログアウトボタン--}}
-                    <li class="nav-item col-md-4">{!! link_to_route('logout', 'ログアウト', ['user' => Auth::id()]) !!}</li>
-                @endcan
+                    <li class="nav-item">{!! link_to_route('logout', 'ログアウト', ['user' => Auth::id()],['class' => 'nav-link']) !!}</li>
+                    @endcan
                 @else
                     {{-- トップページへのリンク --}}
                     <li class="nav-item col-md-4"><a href="/" class="nav-link">探す</a></li>

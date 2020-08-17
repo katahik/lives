@@ -7,6 +7,13 @@ use App\User;
 
 class UsersController extends Controller
 {
+    public function index(){
+        $users = User::all();
+        return view('users.index',[
+            'users'=>$users
+        ]);
+    }
+
     public function show($id)
     {
         // idの値でユーザを検索して取得
@@ -16,5 +23,14 @@ class UsersController extends Controller
         return view('users.show', [
             'user' => $user,
         ]);
+    }
+    public function destroy(Request $request) {
+        // バリデーション
+//        $validatedData = $request->validate([
+//            'ids' => 'array|required'
+//        ]);
+
+        Post::destroy($request->ids);
+        return redirect('user.index');
     }
 }

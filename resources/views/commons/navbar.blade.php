@@ -7,9 +7,11 @@
                 @if (Auth::check())
                     {{-- トップページへのリンク --}}
 {{--                一時的に会員登録画面へ遷移するようにしている--}}
-                    <li class="nav-item col-md-6">{!!link_to_route('signup.get', '探す', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item col-md-4">{!!link_to_route('signup.get', '探す', [], ['class' => 'nav-link']) !!}</li>
                     {{-- 行ったライブへのリンク--}}
-                    <li class="nav-item col-md-6">{!! link_to_route('users.show', '行ったライブ', ['user' => Auth::id()]) !!}</li>
+                    <li class="nav-item col-md-4">{!! link_to_route('users.show', '行ったライブ', ['user' => Auth::id()]) !!}</li>
+{{--                    ログアウトボタン--}}
+                    <li class="nav-item col-md-4">{!! link_to_route('logout', 'ログアウト', ['user' => Auth::id()]) !!}</li>
                 @else
                     {{-- トップページへのリンク --}}
                     <li class="nav-item col-md-4"><a href="#" class="nav-link">探す</a></li>

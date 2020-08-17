@@ -26,7 +26,7 @@ class AddColumnLiveImageLivesTable extends Migration
     public function down()
     {
         Schema::table('lives', function (Blueprint $table) {
-            $table->dropColumn('task_image');
+            $table->dropColumn('live_image');
         });
     }
 }

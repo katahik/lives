@@ -2,9 +2,9 @@
 
 @section('content')
     <h1>ユーザー一覧</h1>
-<form method="DELETE" action="{{route('users.destroy',['user' => $user->id]) }}">
-    @csrf
-    <input type="submit" class="btn btn-danger" value="チェックを付けたユーザーを削除する">
+{!! Form::model($users, ['route' => ['users.destroy'], 'method' => 'delete']) !!}
+{!! Form::submit('チェックを入れたユーザーを削除する', ['class' => 'btn btn-danger']) !!}
+
     @if (count($users) > 0)
     <table class="table table-striped">
         <thead>
@@ -31,6 +31,6 @@
         </tbody>
     </table>
     @endif
-</form>
+{!! Form::close() !!}
 
 @endsection

@@ -50,7 +50,8 @@ Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
 
 Route::group(['middleware' => ['auth', 'can:system-only']], function () {
 //    ユーザーの一覧表示と削除
-    Route::resource('users', 'UsersController', ['only' => ['index','destroy']]);
+    Route::get('users', 'UsersController@index')->name('users.index');
+    Route::delete('users', 'UsersController@destroy')->name('users.destroy');
 });
 
 Auth::routes();

@@ -17,7 +17,7 @@
                     @endcan
                     @can('user-higher') {{-- 一般権限以上に表示される --}}
                 {{-- トップページへのリンク --}}
-                    <li class="nav-item">{!!link_to_route('signup.get', '探す', [],['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!!link_to_route('signup.get', 'Lives', [],['class' => 'nav-link']) !!}</li>
                 {{-- 行ったライブへのリンク--}}
                     <li class="nav-item">{!! link_to_route('users.show', '行ったライブ', ['user' => Auth::id()],['class' => 'nav-link']) !!}</li>
                 {{--ログアウトボタン--}}
@@ -25,7 +25,7 @@
                     @endcan
                 @else
                     {{-- トップページへのリンク --}}
-                    <li class="nav-item col-md-4"><a href="/" class="nav-link">探す</a></li>
+                    <li class="nav-item col-md-4"><a href="/" class="nav-link">Lives</a></li>
                     {{-- 行ったライブへのリンク--}}
 {{--                行ったライブへのリンクはログインしていないとログイン画面へ遷移する--}}
                     <li class="nav-item col-md-4">{!!link_to_route('login', '行ったライブ', [], ['class' => 'nav-link']) !!}</li>

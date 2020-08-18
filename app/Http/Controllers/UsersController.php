@@ -26,11 +26,12 @@ class UsersController extends Controller
     }
     public function destroy(Request $request) {
         // バリデーション
-//        $validatedData = $request->validate([
-//            'ids' => 'array|required'
-//        ]);
+        //$validatedData = $request->validate([
+        //'ids' => 'array|required'
+        //]);
 
-        Post::destroy($request->ids);
-        return redirect('user.index');
+//Userクラスのdestroyメソッド呼び出して、引数には主キーをいれている
+        User::destroy($request->ids);
+        return redirect('users');
     }
 }

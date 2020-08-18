@@ -2,9 +2,9 @@
 
 @section('content')
     <h1>ユーザー一覧</h1>
-<form method="POST" action="destroy">
-    <input type="submit" class="btn btn-danger" value="チェックを付けたユーザーを削除する">
+<form method="DELETE" action="{{route('users.destroy',['user' => $user->id]) }}">
     @csrf
+    <input type="submit" class="btn btn-danger" value="チェックを付けたユーザーを削除する">
     @if (count($users) > 0)
     <table class="table table-striped">
         <thead>
@@ -18,8 +18,8 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($users as $user)
         <tr>
+        @foreach ($users as $user)
             <td><input type="checkbox" name="ids[]" value="{{ $user->id }}"></td>
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>

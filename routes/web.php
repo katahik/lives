@@ -43,7 +43,13 @@ Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
 
 Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
 //    自分が作成したライブのみ編集できる
-    Route::resource('lives', 'LivesController');
+//    Route::resource('lives', 'LivesController');
+      Route::resource('lives', 'LivesController',['only' => ['index','store','create']]);
+    Route::delete('lives', 'LivesController@destroy')->name('lives.destroy');
+    Route::put('lives/{live}', 'LivesController@update')->name('lives.update');
+    Route::get('lives/{live}', 'LivesController@show')->name('lives.show');
+    Route::get('lives/{live}/edit', 'LivesController@edit')->name('lives.edit');
+
 });
 
 // 管理者しか見れない群

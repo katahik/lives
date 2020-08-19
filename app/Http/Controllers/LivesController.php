@@ -45,10 +45,27 @@ class LivesController extends Controller
      */
     public function store(Request $request)
     {
-//        ライブクラスのインスタンスを作成
+//      ライブクラスのインスタンスを作成
         $live = new Live;
-//      titleカラムにフォームの値を入れ込む
+//      それぞれのカラムにフォームの値を入れ込む
         $live->title = $request->title;
+        $live->date = $request->date;
+        $live->venue = $request->venue;
+        $live->category = $request->category;
+        $live->artist = $request->artist;
+        $live->min_price = $request->min_price;
+        $live->max_price = $request->max_price;
+        $live->url = $request->url;
+        $live->live_image = $request->live_image;
+
+//        経度緯度を入れたい
+//        userに経度緯度を入力してもらうのは現実的でない
+//        $live->lat = ;
+//        $live->lng = ;
+
+//        ログイン中のuser_idをいれる
+        $live->user_id =　Auth::user()->id;
+
 
         $live->save();
 
@@ -111,15 +128,17 @@ class LivesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $live = Live::findOrFail($id);
-        // メッセージを削除
-        $live->delete();
+    public function destroy(Request $request) {
+        // バリデーション
+        //$validatedData = $request->validate([
+        //'ids' => 'array|required'
+        //]);
 
-        // トップページへリダイレクトさせる
+        //Liveクラスのdestroyメソッド呼び出して、引数には主キーをいれている
+        Live::destroy($request->ids);
         return redirect('lives');
     }
+
     public function result(){
 
 //        検索結果を$lives変数に代入

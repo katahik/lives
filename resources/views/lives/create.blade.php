@@ -10,17 +10,17 @@
 
             <div class="form-group row">
                 {!! Form::label('title', 'ライブ名:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('title', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('title', old('title'), ['class' => 'col-10 form-control']) !!}
             </div>
 
             <div class="form-group row">
 {{--                カレンダーを表示させること--}}
-                {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('date', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label date"]) !!}
+                {!! Form::text('date', old('date'), ['class' => 'col-10 form-control date']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('venue', '会場:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('venue', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('venue', old('venue'), ['class' => 'col-10 form-control']) !!}
             </div>
 
 {{--            緯度経度を直接打ち込むのではなくて、住所打ち込んだら緯度経度がでるように--}}
@@ -30,35 +30,35 @@
 {{--            </div>--}}
             <div class="form-group row">
                 {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('category', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('category', old('category'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('artist', 'アーティスト:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('artist', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('artist', old('artist'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('min_price', 'チケット最低値:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('min_price', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('min_price', old('min_price'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('max_price', 'チケット最高値:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('max_price', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('max_price', old('max_price'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('url', 'URL:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('url', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('url', old('url'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('lat', '緯度:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('lat', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('lat', old('lat'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('lng', '経度:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('lng', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('lng', old('lng'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('live_image', 'イメージ:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('live_image', null, ['class' => 'col-10 form-control']) !!}
+                {!! Form::text('live_image', old('live_image'), ['class' => 'col-10 form-control']) !!}
             </div>
 
 

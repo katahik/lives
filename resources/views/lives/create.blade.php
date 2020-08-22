@@ -14,10 +14,11 @@
             </div>
 
             <div class="form-group row">
-{{--                カレンダーを表示させること--}}
+                {{--                カレンダーを表示させること--}}
                 {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label date"]) !!}
-                {!! Form::text('date', old('date'), ['class' => 'col-10 form-control date']) !!}
+                {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-10 form-control']) !!}
             </div>
+
             <div class="form-group row">
                 {!! Form::label('venue', '会場:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('venue', old('venue'), ['class' => 'col-10 form-control']) !!}
@@ -67,5 +68,5 @@
             {!! Form::close() !!}
         </div>
     </div>
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
 @endsection

@@ -20,7 +20,7 @@ use Illuminate\Support\Str;
 $factory->define(Live::class, function (Faker $faker) {
     return [
         'title' => $faker->word,//言葉
-        'date' => $faker->dateTime,//日にち
+        'date' => $faker->date,//日にち
         'venue' => $faker->locale,//場所
         'category' => $faker->word,//言葉
         'artist' => $faker->name,//名前

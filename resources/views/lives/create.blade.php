@@ -12,15 +12,22 @@
                 {!! Form::label('title', 'ライブ名:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('title', null, ['class' => 'col-10 form-control']) !!}
             </div>
+
             <div class="form-group row">
 {{--                カレンダーを表示させること--}}
-                {!! Form::label('date', '日時:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('date', null, ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('venue', '会場:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('venue', null, ['class' => 'col-10 form-control']) !!}
             </div>
+
+{{--            緯度経度を直接打ち込むのではなくて、住所打ち込んだら緯度経度がでるように--}}
+{{--            <div class="form-group row">--}}
+{{--                {!! Form::label('venue', '会場住所:',['class'=>"col-2 col-form-label"]) !!}--}}
+{{--                {!! Form::text('venue', null, ['class' => 'col-10 form-control','id'=>'addressInput']) !!}--}}
+{{--            </div>--}}
             <div class="form-group row">
                 {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('category', null, ['class' => 'col-10 form-control']) !!}
@@ -42,6 +49,14 @@
                 {!! Form::text('url', null, ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
+                {!! Form::label('lat', '緯度:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('lat', null, ['class' => 'col-10 form-control']) !!}
+            </div>
+            <div class="form-group row">
+                {!! Form::label('lng', '経度:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('lng', null, ['class' => 'col-10 form-control']) !!}
+            </div>
+            <div class="form-group row">
                 {!! Form::label('live_image', 'イメージ:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('live_image', null, ['class' => 'col-10 form-control']) !!}
             </div>
@@ -52,4 +67,5 @@
             {!! Form::close() !!}
         </div>
     </div>
+    <script src="js/main.js"></script>
 @endsection

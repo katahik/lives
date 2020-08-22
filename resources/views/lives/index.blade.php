@@ -17,7 +17,7 @@
         <th></th>
         <th>id</th>
         <th>title</th>
-        <th>日時</th>
+        <th>日にち</th>
         <th>会場</th>
         <th>カテゴリー</th>
         <th>アーティスト</th>

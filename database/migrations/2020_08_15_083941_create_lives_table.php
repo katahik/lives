@@ -16,7 +16,7 @@ class CreateLivesTable extends Migration
         Schema::create('lives', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->dateTime('date');
+            $table->date('date');
             $table->string('venue');
             $table->string('category');
             $table->string('artist');

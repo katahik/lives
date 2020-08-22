@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Live;
+use Illuminate\Support\Facades\Auth;
 
 class LivesController extends Controller
 {
@@ -60,11 +61,11 @@ class LivesController extends Controller
 
 //        経度緯度を入れたい
 //        userに経度緯度を入力してもらうのは現実的でない
-//        $live->lat = ;
-//        $live->lng = ;
+        $live->lat = $request->lat;
+        $live->lng = $request->lng;
 
 //        ログイン中のuser_idをいれる
-        $live->user_id =　Auth::user()->id;
+        $live->user_id =Auth::user()->id;
 
 
         $live->save();

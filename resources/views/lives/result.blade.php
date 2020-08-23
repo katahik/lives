@@ -29,18 +29,18 @@
 
         </div>
 
-<!--        試しに東京を中心とする地図を表示-->
         <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
+        <script src="js/getPosition.js"></script>
         <script>
             function initMap(){
                 'use strict';
-
+                console.log(presentLocationLat);
                 var target = document.getElementById('target');
                 var map;
-                var tokyo = {lat: 35.681167,lng: 139.767052};
+                var presentLocation = {lat: presentLocationLat,lng: presentLocationlng};
 
                 map = new google.maps.Map(target,{
-                    center: tokyo,
+                    center: presentLocation,
                     zoom: 14,
                 });
             }

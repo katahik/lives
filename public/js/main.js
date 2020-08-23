@@ -4,6 +4,7 @@ function getIdoKeido() {
 
     //入力した住所を取得します。
     var addressInput = document.getElementById('addressInput').value;
+    console.log(addressInput);
 
     //Google Maps APIのジオコーダを使います。
     var geocoder = new google.maps.Geocoder();
@@ -17,6 +18,8 @@ function getIdoKeido() {
         },
         function(results, status) {
 
+            console.log(results, status)
+
             var idokeido = "";
 
             if (status == google.maps.GeocoderStatus.OK) {
@@ -27,11 +30,18 @@ function getIdoKeido() {
                     if (results[i].geometry) {
 
                         //緯度を取得します。
-                        var ido = results[i].geometry.location.lat();
+                        var lat = results[i].geometry.location.lat();
                         //経度を取得します。
-                        var keido = results[i].geometry.location.lng();
+                        var lng = results[i].geometry.location.lng();
+                        
+                        // console.log(lat);
+                        // console.log(lng);
+                        
+                        $('#lat').val(lat);
+                        $('#lng').val(lng);
 
-                        idokeido += "■緯度：" + ido + "\n　経度：" + keido + "\n";
+                        
+                        break;
                     }
                 }
             } else if (status == google.maps.GeocoderStatus.ZERO_RESULTS) {
@@ -48,7 +58,9 @@ function getIdoKeido() {
                 alert("原因不明のエラーが発生しました。");
             }
 
-            //緯度・経度の結果表示をします。
-            document.getElementById('idokeidoOutput').value = idokeido;
+           
         });
 }
+$('#searchGeo').on('click',getIdoKeido);
+
+//document.getElementById('searchGeo').on('click',getIdoKeido);

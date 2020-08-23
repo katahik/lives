@@ -29,6 +29,8 @@
                 {!! Form::label('address', '会場住所:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('address',  old('address'), ['class' => 'col-10 form-control','id'=>'addressInput']) !!}
             </div>
+            <div id="searchGeo" class="btn btn-primary">緯度経度変換</div>
+            
 
 
             <div class="form-group row">
@@ -71,6 +73,10 @@
             {!! Form::close() !!}
         </div>
     </div>
+    
+@endsection
+
+@section('script')
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
     <script src="{{ asset('/js/main.js') }}"></script>
 @endsection

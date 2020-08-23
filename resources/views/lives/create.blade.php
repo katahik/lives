@@ -24,11 +24,13 @@
                 {!! Form::text('venue', old('venue'), ['class' => 'col-10 form-control']) !!}
             </div>
 
-{{--            緯度経度を直接打ち込むのではなくて、住所打ち込んだら緯度経度がでるように--}}
-{{--            <div class="form-group row">--}}
-{{--                {!! Form::label('venue', '会場住所:',['class'=>"col-2 col-form-label"]) !!}--}}
-{{--                {!! Form::text('venue', null, ['class' => 'col-10 form-control','id'=>'addressInput']) !!}--}}
-{{--            </div>--}}
+{{--            緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できるようにする--}}
+            <div class="form-group row">
+                {!! Form::label('address', '会場住所:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('address',  old('address'), ['class' => 'col-10 form-control','id'=>'addressInput']) !!}
+            </div>
+
+
             <div class="form-group row">
                 {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('category', old('category'), ['class' => 'col-10 form-control']) !!}
@@ -49,14 +51,15 @@
                 {!! Form::label('url', 'URL:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('url', old('url'), ['class' => 'col-10 form-control']) !!}
             </div>
-            <div class="form-group row">
-                {!! Form::label('lat', '緯度:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('lat', old('lat'), ['class' => 'col-10 form-control']) !!}
-            </div>
-            <div class="form-group row">
-                {!! Form::label('lng', '経度:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('lng', old('lng'), ['class' => 'col-10 form-control']) !!}
-            </div>
+{{--            緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できるようにする--}}
+{{--            <div class="form-group row">--}}
+{{--                {!! Form::label('lat', '緯度:',['class'=>"col-2 col-form-label"]) !!}--}}
+{{--                {!! Form::text('lat', old('lat'), ['class' => 'col-10 form-control']) !!}--}}
+{{--            </div>--}}
+{{--            <div class="form-group row">--}}
+{{--                {!! Form::label('lng', '経度:',['class'=>"col-2 col-form-label"]) !!}--}}
+{{--                {!! Form::text('lng', old('lng'), ['class' => 'col-10 form-control']) !!}--}}
+{{--            </div>--}}
             <div class="form-group row">
                 {!! Form::label('live_image', 'イメージ:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('live_image', old('live_image'), ['class' => 'col-10 form-control']) !!}
@@ -68,5 +71,6 @@
             {!! Form::close() !!}
         </div>
     </div>
-    <script src="main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
+    <script src="{{ asset('/js/main.js') }}"></script>
 @endsection

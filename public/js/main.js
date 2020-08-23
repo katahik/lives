@@ -33,13 +33,17 @@ function getIdoKeido() {
                         //経度を取得します。
                         var lng = results[i].geometry.location.lng();
 
-                        console.log(lat);
-                        console.log(lng);
+                        // console.log(lat);
+                        // console.log(lng);
 
+                        // val()メソッド
+                        // val()を使ってvalue値を設定できる
+                        // idがlat(またはlng)のvalue値に、変数lat(またはlng)を設定する
                         $('#lat').val(lat);
                         $('#lng').val(lng);
 
-
+                        // そもそも、ループを回して、検索結果にあっているものをiに入れていっているため
+                        // 精度の低いものもでてきてしまう。その必要はないから、一回でbreak
                         break;
                     }
                 }

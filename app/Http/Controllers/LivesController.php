@@ -59,14 +59,12 @@ class LivesController extends Controller
         $live->url = $request->url;
         $live->live_image = $request->live_image;
 
-//        経度緯度を入れたい
-//        userに経度緯度を入力してもらうのは現実的でない
+//        javaScriptでlat,lngを取得し、それをcreate.blade.phpで受け取る
         $live->lat = $request->lat;
         $live->lng = $request->lng;
 
 //        ログイン中のuser_idをいれる
         $live->user_id =Auth::user()->id;
-
 
         $live->save();
 

@@ -14,7 +14,7 @@
             </div>
 
             <div class="form-group row">
-                {{--                カレンダーを表示させること--}}
+                {{--                カレンダーを表示させること→実装--}}
                 {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label date"]) !!}
                 {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-10 form-control']) !!}
             </div>

@@ -36,7 +36,7 @@
                 {!! Form::select('category', ['ロック','ポップス','パンク'] ,old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}
             </div>
 
-            {!! Form::submit('検索',['onclick' => "getPosition()",'class' => 'btn btn-primary']) !!}
+            {!! Form::submit('検索',['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>

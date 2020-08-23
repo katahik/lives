@@ -30,14 +30,15 @@
         </div>
 
         <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
-        <script src="js/getPosition.js"></script>
+{{--        <script src="js/getPosition.js"></script>--}}
         <script>
             function initMap(){
                 'use strict';
-                console.log(presentLocationLat);
+                // console.log(presentLocationLat);
                 var target = document.getElementById('target');
                 var map;
-                var presentLocation = {lat: presentLocationLat,lng: presentLocationlng};
+                // var presentLocation = {lat: presentLocationLat,lng: presentLocationLng};
+                var presentLocation = {lat: 35.4122,lng: 139.4122};
 
                 map = new google.maps.Map(target,{
                     center: presentLocation,

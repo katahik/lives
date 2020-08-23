@@ -30,8 +30,15 @@
                 {!! Form::text('address',  old('address'), ['class' => 'col-10 form-control','id'=>'addressInput']) !!}
             </div>
             <div id="searchGeo" class="btn btn-primary">緯度経度変換</div>
-            
-
+            {{--            緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できるようにする--}}
+            <div class="form-group row">
+                {!! Form::label('lat', '緯度:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('lat', old('lat'), ['class' => 'col-10 form-control','id'=>"lat"]) !!}
+            </div>
+            <div class="form-group row">
+                {!! Form::label('lng', '経度:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('lng', old('lng'), ['class' => 'col-10 form-control','id'=>"lng"]) !!}
+            </div>
 
             <div class="form-group row">
                 {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
@@ -53,15 +60,7 @@
                 {!! Form::label('url', 'URL:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('url', old('url'), ['class' => 'col-10 form-control']) !!}
             </div>
-{{--            緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できるようにする--}}
-{{--            <div class="form-group row">--}}
-{{--                {!! Form::label('lat', '緯度:',['class'=>"col-2 col-form-label"]) !!}--}}
-{{--                {!! Form::text('lat', old('lat'), ['class' => 'col-10 form-control']) !!}--}}
-{{--            </div>--}}
-{{--            <div class="form-group row">--}}
-{{--                {!! Form::label('lng', '経度:',['class'=>"col-2 col-form-label"]) !!}--}}
-{{--                {!! Form::text('lng', old('lng'), ['class' => 'col-10 form-control']) !!}--}}
-{{--            </div>--}}
+
             <div class="form-group row">
                 {!! Form::label('live_image', 'イメージ:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('live_image', old('live_image'), ['class' => 'col-10 form-control']) !!}
@@ -73,7 +72,7 @@
             {!! Form::close() !!}
         </div>
     </div>
-    
+
 @endsection
 
 @section('script')

@@ -1,4 +1,3 @@
-// サンプルを以下の通り貼り付け
 
 function getIdoKeido() {
 
@@ -33,14 +32,14 @@ function getIdoKeido() {
                         var lat = results[i].geometry.location.lat();
                         //経度を取得します。
                         var lng = results[i].geometry.location.lng();
-                        
-                        // console.log(lat);
-                        // console.log(lng);
-                        
+
+                        console.log(lat);
+                        console.log(lng);
+
                         $('#lat').val(lat);
                         $('#lng').val(lng);
 
-                        
+
                         break;
                     }
                 }
@@ -58,7 +57,7 @@ function getIdoKeido() {
                 alert("原因不明のエラーが発生しました。");
             }
 
-           
+
         });
 }
 $('#searchGeo').on('click',getIdoKeido);

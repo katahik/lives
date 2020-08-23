@@ -13,4 +13,5 @@ function success(pos) {
     console.log('緯度:' + presentLocationLat);
     console.log('経度:' + presentLocationlng);
 
+    return [presentLocationLat,presentLocationlng];
 }

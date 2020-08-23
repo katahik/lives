@@ -31,7 +31,6 @@
             </table>
 
         <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
-{{--        <script src="js/getPosition.js"></script>--}}
         <script>
             function setLocation(pos){
 

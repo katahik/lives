@@ -41,11 +41,9 @@
             {!! Form::close() !!}
         </div>
     </div>
-    <button onclick="getPosition()">現在地を取得</button>
 
 @section('script')
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
-    <script src="{{ asset('/js/getPosition.js') }}"></script>
 @endsection
 
 @endsection

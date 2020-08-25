@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Utils\CalcDistance;
 use Illuminate\Http\Request;
 use App\Live;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class LivesController extends Controller
 {
@@ -141,11 +143,16 @@ class LivesController extends Controller
     public function result(){
 
 //        検索結果を$lives変数に代入
-//        $lives = ->get()
+//        引数で、現在地に$lat1,$lng2,目標座標に$lat2,$lng2を取る
+//        ループさせて、規定の距離より短いものを抽出したい
+        $distance = CalcDistance::google_distance($lat1, $lng1, $lat2, $lng2);
+
+//        一旦今日のライブを表示させた
+        $lives = Live::where('date',Carbon::today())->get();
 
 //        $livesをlives.resultで表示
         return view('lives.result', [
-//            'lives' => $lives,
+            'lives' => $lives,
         ]);
 
 

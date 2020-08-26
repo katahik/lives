@@ -144,12 +144,18 @@ class LivesController extends Controller
 
 //        検索結果を$lives変数に代入
 
-//        引数で、現在地に$lat1,$lng2,目標座標に$lat2,$lng2を取る
-//        ループさせて、規定の距離より短いものを抽出したい
-        // $distance = CalcDistance::google_distance($lat1, $lng1, $lat2, $lng2);
+        $maxLat=lat+(config('const.latPerKm')*5);
+        $minLat=lat-(config('const.latPerKm')*5);
+        $maxLng=lng+(config('const.lngPerKm')*5);
+        $minLng=lng-(config('const.lngPerKm')*5);
 
-//        一旦今日のライブを表示させた
-        $lives = Live::where('date',Carbon::today())->get();
+//        今日の日付を探す
+        $lives = Live::where('date',Carbon::today())
+//            latの値が$minLat<=lat<=$maxLat;
+            ->whereBetween('lat',[$minLat,$maxLat])
+//            lngの値が$minLng<=lng<=$maxLng;
+            ->whereBetween('lng',[$minLng,$maxLng])
+            ->get();
 
 //        $livesをlives.resultで表示
         return view('lives.result', [

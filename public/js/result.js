@@ -2,14 +2,14 @@ function setLocation(pos){
 
     // 緯度・経度を取得
     lat = pos.coords.latitude;
-    lon = pos.coords.longitude;
+    lng = pos.coords.longitude;
 
     // 緯度・経度を表示
     document.getElementById("table_lat").innerHTML = lat;
-    document.getElementById("table_lon").innerHTML = lon;
+    document.getElementById("table_lon").innerHTML = lng;
 
     // google map へ表示するための設定
-    latlon = new google.maps.LatLng(lat,lon);
+    latlng = new google.maps.LatLng(lat,lng);
     map = document.getElementById("map");
     opt = {
         zoom: 17,

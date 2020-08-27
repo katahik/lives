@@ -28,7 +28,7 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 //結果の表示
-Route::post('result','LivesController@result')->name('lives.result');
+Route::get('result','LivesController@result')->name('lives.result');
 
 
 //ログイン中の一般ユーザーが見れる群

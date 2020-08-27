@@ -4,7 +4,7 @@
     <div class="center jumbotron">
         <div class="text-center" id="searchLives">
 {{--            自分の位置情報と会場の位置情報で半径5kmのライブを検索する--}}
-            {!! Form::open(['route' => 'lives.result']) !!}
+            {!! Form::open(['route' => 'lives.result','method' => 'get']) !!}
 {{--            隠しフォームでlivescontrollerに位置情報を渡す--}}
 {{--            lat用--}}
             {!! Form::hidden('lat','lat',['id' => 'lat_id']) !!}
@@ -18,7 +18,7 @@
 
     <div class="row">
         <div class="col-12">
-            {!! Form::open(['route' => 'lives.result']) !!}
+            {!! Form::open(['route' => 'lives.result','method' => 'get']) !!}
 
             <div class="form-group row">
                 {!! Form::label('freeword', 'フリーワード:',['class'=>"col-2 col-form-label"]) !!}

@@ -141,15 +141,29 @@ class LivesController extends Controller
     }
 
     public function result(Request $request){
-        dd($request);
-
+//        dd($request);
 //        検索結果を$lives変数に代入
+        $lat = $request->lat;
+        $lng = $request->lng;
 
-        $maxLat=lat+(config('const.latPerKm')*5);
-        $minLat=lat-(config('const.latPerKm')*5);
-        $maxLng=lng+(config('const.lngPerKm')*5);
-        $minLng=lng-(config('const.lngPerKm')*5);
 
+//        緯度/km = 0.0090133729745762
+//        半径（正方形だが）5km  0.0090133729745762 * 5 = 0.04506686487
+        $maxLat=$lat+0.04506686487;
+        $minLat=$lat-0.04506686487;
+//        経度/km = 0.010966404715491394
+//        半径（正方形だが）5km  0.010966404715491394 * 5 = 0.05483202357
+        $maxLng=$lng+0.05483202357;
+        $minLng=$lng-0.05483202357;
+
+
+//        config/const.phpから持ってこようとしたものの、おそらく型変換？の関係で計算できず、断念
+//        $maxLat=$lat+(config('const.latPerKm')*5);
+//        $minLat=$lat-(config('const.latPerKm')*5);
+//        $maxLng=$lng+(config('const.lngPerKm')*5);
+//        $minLng=$lng-(config('const.lngPerKm')*5);
+
+//dd($lat,$maxLat,$minLat,$lng,$maxLng,$minLng);
 //        今日の日付を探す
         $lives = Live::where('date',Carbon::today())
 //            latの値が$minLat<=lat<=$maxLat;

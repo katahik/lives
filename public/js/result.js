@@ -13,7 +13,7 @@ function setLocation(pos){
     map = document.getElementById("map");
     opt = {
         zoom: 17,
-        center: latlon,
+        center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         scrollwheel: false,
         scaleControl: true,
@@ -26,7 +26,7 @@ function setLocation(pos){
 
     // マーカーを設定
     marker = new google.maps.Marker({
-        position: latlon,
+        position: latlng,
         map: mapObj
     });
 

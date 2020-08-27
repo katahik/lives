@@ -2,9 +2,15 @@
 
 @section('content')
     <div class="center jumbotron">
-        <div class="text-center">
-{{--            自分の位置情報と会場の位置情報で半径3kmのライブを検索する--}}
+        <div class="text-center" id="searchLives">
+{{--            自分の位置情報と会場の位置情報で半径5kmのライブを検索する--}}
             {!! Form::open(['route' => 'lives.result']) !!}
+{{--            隠しフォームでlivescontrollerに位置情報を渡す--}}
+{{--            lat用--}}
+            {!! Form::hidden('lat','lat',['id' => 'lat_id']) !!}
+{{--            lng用--}}
+            {!! Form::hidden('lng','lng',['id' => 'lng_id']) !!}
+
             {!! Form::submit('この周辺の今日のライブを探す', ['class' => "btn btn-success btn-block"]) !!}
             {!! Form::close() !!}
         </div>
@@ -44,6 +50,7 @@
 
 @section('script')
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
+    <script src="{{ asset('/js/SetLocation.js') }}"></script>
 @endsection
 
 @endsection

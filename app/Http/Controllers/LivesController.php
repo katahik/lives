@@ -140,7 +140,8 @@ class LivesController extends Controller
         return redirect('lives');
     }
 
-    public function result(){
+    public function result(Request $request){
+        dd($request);
 
 //        検索結果を$lives変数に代入
 
@@ -161,7 +162,5 @@ class LivesController extends Controller
         return view('lives.result', [
             'lives' => $lives,
         ]);
-
-
     }
 }

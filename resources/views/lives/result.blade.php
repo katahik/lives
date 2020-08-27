@@ -29,7 +29,7 @@
 
             <table>
                 <tr><th>緯度</th><td id="table_lat"></td></tr>
-                <tr><th>経度</th><td id="table_lon"></td></tr>
+                <tr><th>経度</th><td id="table_lng"></td></tr>
             </table>
 @endsection
 

@@ -6,7 +6,7 @@ function setLocation(pos){
 
     // 緯度・経度を表示
     document.getElementById("table_lat").innerHTML = lat;
-    document.getElementById("table_lon").innerHTML = lng;
+    document.getElementById("table_lng").innerHTML = lng;
 
     // google map へ表示するための設定
     latlng = new google.maps.LatLng(lat,lng);

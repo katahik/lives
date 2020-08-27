@@ -146,15 +146,18 @@ class LivesController extends Controller
         $lat = $request->lat;
         $lng = $request->lng;
 
+//        文字列型かたfloatで浮動小数点型へ変更
+        $lat1 = (float)$lat;
+        $lng1 = (float)$lng;
 
 //        緯度/km = 0.0090133729745762
 //        半径（正方形だが）5km  0.0090133729745762 * 5 = 0.04506686487
-        $maxLat=$lat+0.04506686487;
-        $minLat=$lat-0.04506686487;
+        $maxLat=$lat1+0.04506686487;
+        $minLat=$lat1-0.04506686487;
 //        経度/km = 0.010966404715491394
 //        半径（正方形だが）5km  0.010966404715491394 * 5 = 0.05483202357
-        $maxLng=$lng+0.05483202357;
-        $minLng=$lng-0.05483202357;
+        $maxLng=$lng1+0.05483202357;
+        $minLng=$lng1-0.05483202357;
 
 
 //        config/const.phpから持ってこようとしたものの、おそらく型変換？の関係で計算できず、断念

@@ -146,7 +146,7 @@ class LivesController extends Controller
         $lat = $request->lat;
         $lng = $request->lng;
 
-//        文字列型かたfloatで浮動小数点型へ変更
+//        文字列型をfloatで浮動小数点型へ変更
         $lat1 = (float)$lat;
         $lng1 = (float)$lng;
 
@@ -167,6 +167,7 @@ class LivesController extends Controller
 //        $minLng=$lng-(config('const.lngPerKm')*5);
 
 //dd($lat,$maxLat,$minLat,$lng,$maxLng,$minLng);
+
 //        今日の日付を探す
         $lives = Live::where('date',Carbon::today())
 //            latの値が$minLat<=lat<=$maxLat;

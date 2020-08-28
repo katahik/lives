@@ -17,7 +17,8 @@
                 <tbody>
                 @foreach ($lives as $live)
                     <tr>
-                        <td>{{ $live->title }}</td>
+{{--                        <td>{{ $live->title }}</td>--}}
+                        <td>{!! link_to_route('lives.show', $live->title, ['live' => $live->id]) !!}</td>
                         <td>{{ $live->date }}</td>
                         <td>{{ $live->venue }}</td>
                         <td>{{ $live->artist }}</td>

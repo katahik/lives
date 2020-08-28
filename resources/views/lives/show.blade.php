@@ -1,17 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
+{{--    トップに画像を出す--}}
+{{$live->live_image}}
+    <h1>{{ $live->title }} のライブ詳細ページ</h1>
 
-    <h1>id = {{ $live->id }} のライブ詳細ページ</h1>
-
-    <table class="table table-bordered">
+    <table class="table table-striped">
         <tr>
-            <th>id</th>
-            <td>{{ $live->id }}</td>
+            <th>タイトル</th>
+            <td>{{ $live->title }}</td>
         </tr>
         <tr>
-            <th>メッセージ</th>
-            <td>{{ $live->title }}</td>
+            <th>日にち</th>
+            <td>{{ $live->date }}</td>
+        </tr>
+        <tr>
+            <th>会場</th>
+            <td>{{ $live->venue }}</td>
+        </tr>
+        <tr>
+            <th>カテゴリー</th>
+            <td>{{ $live->category }}</td>
+        </tr>
+        <tr>
+            <th>アーティスト</th>
+            <td>{{ $live->artist }}</td>
+        </tr>
+        <tr>
+            <th>チケット最低値</th>
+            <td>{{ $live->min_price }}</td>
+        </tr>
+        <tr>
+            <th>チケット最高値</th>
+            <td>{{ $live->max_price }}</td>
+        </tr>
+        <tr>
+            <th>公式URL</th>
+            <td>{{ $live->url }}</td>
         </tr>
     </table>
     {{-- メッセージ編集ページへのリンク --}}

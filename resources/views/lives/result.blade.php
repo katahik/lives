@@ -35,5 +35,9 @@
 
 @section('script')
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
+    <script>
+        // result.jsで使用するvar livesに、controllerで定義した$livesの各要素を配列にして、json形式にし、result.jsに渡す
+        var lives = @json($lives->toArray());
+    </script>
     <script src="{{ asset('/js/result.js') }}"></script>
 @endsection

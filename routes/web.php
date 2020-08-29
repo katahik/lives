@@ -34,6 +34,7 @@ Route::get('result','LivesController@result')->name('lives.result');
 //ログイン中の一般ユーザーが見れる群
 
 Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
+
     // 行ったライブ
     Route::resource('users', 'UsersController', ['only' => ['show']]);
 });

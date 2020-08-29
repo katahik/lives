@@ -34,4 +34,29 @@ class UsersController extends Controller
         User::destroy($request->ids);
         return redirect('users');
     }
+    /**
+     * ユーザの行ったライブページを表示するアクション。
+     *
+     * @param  $id  liveのid
+     * @return \Illuminate\Http\Response
+     */
+
+    public function wentLive($id)
+    {
+        // idの値でユーザを検索して取得
+        $user = Live::findOrFail($id);
+
+        // 関係するモデルの件数をロード
+        $user->loadRelationshipCounts();
+
+        // ユーザの行ったライブ一覧を取得
+        $wentLive = $user->wentLive()->paginate(10);
+
+        //行ったライブでそれらを表示
+        return view('users.show', [
+            'user' => $user,
+            'wentLive' => $wentLive,
+        ]);
+    }
+
 }

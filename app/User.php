@@ -85,4 +85,9 @@ class User extends Authenticatable
         return $this->wentLive()->where('live_id', $liveId)->exists();
     }
 
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('wentLive');
+    }
+
 }

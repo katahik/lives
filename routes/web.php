@@ -38,8 +38,8 @@ Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('going', 'GoingController@store')->name('going');
         Route::delete('ungoing', 'GoingController@destroy')->name('ungoing');
-        Route::get('wentLive', 'GoingController@followings')->name('wentLive');
-        Route::get('livers', 'GoingController@followers')->name('livers');
+        Route::get('wentLive', 'UsersController@wentLive')->name('wentLive');
+        Route::get('livers', 'UsersController@followers')->name('livers');
     });
     // 行ったライブ
     Route::resource('users', 'UsersController', ['only' => ['show']]);

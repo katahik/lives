@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
 {{--    トップに画像を出す--}}
 @if($live->live_image === null)
-{{--    <img src="/public/image/sample_live_image.jpg" width="200px" height="200px">--}}
+{{--ライブイメージが格納されていない場合--}}
+{{--予め設定していたデフォルトの画像を表示--}}
     <img src="/storage/defaultLiveImage.jpg" width="200px" height="200px">
 @else
     <img src="{{ Storage::disk('s3')->url($live->live_image)}}" width="200px" height="200px">
 @endif
-
     <h1>{{ $live->title }} の詳細</h1>
 
     <table class="table table-striped">

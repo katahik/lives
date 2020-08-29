@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Utils\CalcDistance;
+use App\Utils\Upload;
 use Illuminate\Http\Request;
 use App\Live;
 use Illuminate\Support\Facades\Auth;
@@ -59,7 +60,24 @@ class LivesController extends Controller
         $live->min_price = $request->min_price;
         $live->max_price = $request->max_price;
         $live->url = $request->url;
+
+
+//        一旦後回しのためURLを入れる
         $live->live_image = $request->live_image;
+//        $liveImage = $request->file('liveImage');
+////        UploadクラスのUploadImage関数で引数に$liveImage
+//        $uploadImage=Upload::uploadImage($liveImage);
+//
+//        //uploadImageに値が入っているかつファイルが存在し、問題なくアップロードできたか
+//        if($uploadImage){
+//            $live->live_image = $uploadImage;
+//        }else{
+//            return redirect()
+//                ->back()
+//                ->withInput()
+//                ->withErrors(['userImage' => '画像がアップロードされていないか不正なデータです']);
+//        }
+
 
 //        javaScriptでlat,lngを取得し、それをcreate.blade.phpで受け取る
         $live->lat = $request->lat;

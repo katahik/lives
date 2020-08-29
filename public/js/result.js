@@ -12,13 +12,14 @@ function setLocation(pos){
     latlng = new google.maps.LatLng(lat,lng);
     map = document.getElementById("map");
     opt = {
-        zoom: 17,
+        zoom: 15,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         scrollwheel: false,
         scaleControl: true,
         disableDoubleClickZoom: true,
-        draggable: false
+        draggable: false,
+        clickableIcons: false, //地図上のアイコンを押せないように
     };
 
     // google map 表示
@@ -43,12 +44,35 @@ function setLocation(pos){
         markerLatLng = new google.maps.LatLng({lat:live.lat,lng:live.lng});
         // マーカーの追加
         marker[i] = new google.maps.Marker({
-            position: markerLatLng,//マーカーの立てる位置は$livesのlat,lng
+            position: markerLatLng,//マーカーの立てる位置は$livesのlat,lngを入れたmarkerLatLng
             map: mapObj,//マーカーを立てる地図を指定
             title:live.title,//ホバーしたときに$livesのtitleを表示させる
         })
+
+        // 実装できず、一時保留
+        // marker[i].addEventListener('click',function(e){
+        //     console.log('click');
+        // });
+
+        // 以下参考コード
+        // マーカーにクリックイベントを追加
+        // function markerEvent(i) {
+        //     marker[i].addListener('click', function() { // マーカーをクリックしたとき
+        //         closeInfoWindow();
+        //         infoWindow[i].open(map, marker[i]); // 吹き出しの表示
+        //         //マーカー色変更
+        //         changeIcon(i);
+        //         //リストの色変更
+        //         changeCurrent(i);
+        //     });
+        // }
     }
+
+
 }
+
+
+
 
 // エラー時に呼び出される関数
 function showErr(err){
@@ -71,3 +95,5 @@ if("geolocation" in navigator){
 }else{
     alert("ブラウザが位置情報取得に対応していません");
 }
+
+

@@ -6,7 +6,9 @@
 
     <div class="row">
         <div class="col-12">
-            {!! Form::model($live, ['route' => 'lives.store']) !!}
+{{--   'files' => trueを記入することでフォームにenctype="multipart/form-data"属性が付与--}}
+            {!! Form::model($live, ['route' => 'lives.store','files' => true]) !!}
+            {{Form::token()}}
 
             <div class="form-group row">
                 {!! Form::label('title', 'ライブ名:',['class'=>"col-2 col-form-label"]) !!}
@@ -63,6 +65,7 @@
 
             <div class="form-group row">
                 {!! Form::label('live_image', 'イメージ:',['class'=>"col-2 col-form-label"]) !!}
+{{--                {!! Form::file('liveImage') !!}--}}
                 {!! Form::text('live_image', old('live_image'), ['class' => 'col-10 form-control']) !!}
             </div>
 

@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
         Route::get('livers', 'UsersController@followers')->name('livers');
     });
     // 行ったライブ
-    Route::resource('users', 'UsersController', ['only' => ['show']]);
+    Route::get('users/{user}', 'UsersController@show')->name('users.show');
 });
 
 

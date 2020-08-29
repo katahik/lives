@@ -3,7 +3,8 @@
 @section('content')
 {{--    トップに画像を出す--}}
 @if($live->live_image === null)
-    <img src="storage/app/public/image/sample_live_image.jpg" width="200px" height="200px">
+{{--    <img src="/public/image/sample_live_image.jpg" width="200px" height="200px">--}}
+    <img src="/storage/defaultLiveImage.jpg" width="200px" height="200px">
 @else
     <img src="{{ Storage::disk('s3')->url($live->live_image)}}" width="200px" height="200px">
 @endif

@@ -2,8 +2,13 @@
 
 @section('content')
 {{--    トップに画像を出す--}}
-{{$live->live_image}}
-    <h1>{{ $live->title }} のライブ詳細ページ</h1>
+@if($live->live_image === null)
+    <img src="storage/app/public/image/sample_live_image.jpg" width="500px" height="100px">
+@else
+    <img src="{{ Storage::disk('s3')->url($live->live_image)}}" width="500px" height="100px">
+@endif
+
+    <h1>{{ $live->title }} の詳細</h1>
 
     <table class="table table-striped">
         <tr>

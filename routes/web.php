@@ -34,7 +34,13 @@ Route::get('result','LivesController@result')->name('lives.result');
 //ログイン中の一般ユーザーが見れる群
 
 Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
-
+//  このグループ内のURLの最初に /users/{id}/を付与
+    Route::group(['prefix' => 'users/{id}'], function () {
+        Route::post('going', 'GoingController@store')->name('going');
+        Route::delete('ungoing', 'GoingController@destroy')->name('ungoing');
+        Route::get('wentLive', 'GoingController@followings')->name('wentLive');
+        Route::get('livers', 'GoingController@followers')->name('livers');
+    });
     // 行ったライブ
     Route::resource('users', 'UsersController', ['only' => ['show']]);
 });

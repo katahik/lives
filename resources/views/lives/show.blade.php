@@ -39,7 +39,12 @@
             <td>{{ $live->url }}</td>
         </tr>
     </table>
+
+    <aside class="col-sm-4">
+        {{-- going／ungoingボタン --}}
+        @include('user_going.going_button')
+    </aside>
+
     {{-- メッセージ編集ページへのリンク --}}
     {!! link_to_route('lives.edit', 'このライブを編集', ['live' => $live->id], ['class' => 'btn btn-light']) !!}
-
 @endsection

@@ -61,21 +61,23 @@ class LivesController extends Controller
         $live->max_price = $request->max_price;
         $live->url = $request->url;
 
-
         $liveImage = $request->file('liveImage');
-//        UploadクラスのUploadImage関数で引数に$liveImage
-        $uploadImage=Upload::uploadImage($liveImage);
 
-        //uploadImageに値が入っているかつファイルが存在し、問題なくアップロードできたか
-        if($uploadImage){
-            $live->live_image = $uploadImage;
-        }else{
-            return redirect()
-                ->back()
-                ->withInput()
-                ->withErrors(['userImage' => '画像がアップロードされていないか不正なデータです']);
+        //live_imageカラムはnullabelを設定しているため、live_imageがnullだった場合
+        //もし,$liveImageに値が入っていたら、下記の処理
+        if(!(is_null($liveImage))){
+            //UploadクラスのUploadImage関数で引数に$liveImage
+            $uploadImage=Upload::uploadImage($liveImage);
+            //uploadImageに値が入っているかつファイルが存在し、問題なくアップロードできたか
+            if($uploadImage){
+                $live->live_image = $uploadImage;
+            }else{
+                return redirect()
+                    ->back()
+                    ->withInput()
+                    ->withErrors(['userImage' => '画像がアップロードされていないか不正なデータです']);
+            }
         }
-
 
 //        javaScriptでlat,lngを取得し、それをcreate.blade.phpで受け取る
         $live->lat = $request->lat;

@@ -49,10 +49,12 @@ function setLocation(pos){
             title:live.title,//ホバーしたときに$livesのtitleを表示させる
         })
 
-        // 実装できず、一時保留
-        // marker[i].addEventListener('click',function(e){
-        //     console.log('click');
-        // });
+        // ライブ位置情報のマーカーをクリックした際、ライブ詳細画面へ遷移
+        //マーカーをクリックしたとき
+        marker[i].addEventListener('click', function (e) {
+            console.log('click');
+        });
+
 
         // 以下参考コード
         // マーカーにクリックイベントを追加
@@ -67,11 +69,7 @@ function setLocation(pos){
         //     });
         // }
     }
-
-
 }
-
-
 
 
 // エラー時に呼び出される関数

@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
         Route::post('going', 'GoingController@store')->name('going');
         Route::delete('ungoing', 'GoingController@destroy')->name('ungoing');
         Route::get('wentLive', 'UsersController@wentLive')->name('wentLive');
+//        現在は使っていないroute
         Route::get('livers', 'UsersController@followers')->name('livers');
     });
     // 行ったライブ

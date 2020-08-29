@@ -133,8 +133,40 @@ class LivesController extends Controller
     public function update(Request $request, $id)
     {
         $live = Live::findOrFail($id);
-        // メッセージを更新
+//        それぞれのカラムにフォームの値を入れ込む
         $live->title = $request->title;
+        $live->date = $request->date;
+        $live->venue = $request->venue;
+        $live->category = $request->category;
+        $live->artist = $request->artist;
+        $live->min_price = $request->min_price;
+        $live->max_price = $request->max_price;
+        $live->url = $request->url;
+
+        $liveImage = $request->file('liveImage');
+//        dd($liveImage);
+        //live_imageカラムはnullabelを設定しているため、live_imageがnullだった場合
+        //もし,$liveImageに値が入っていたら、下記の処理
+        if(!(is_null($liveImage))){
+            //UploadクラスのUploadImage関数で引数に$liveImage
+            $uploadImage=Upload::uploadImage($liveImage);
+            //uploadImageに値が入っているかつファイルが存在し、問題なくアップロードできたか
+            if($uploadImage){
+                $live->live_image = $uploadImage;
+            }else{
+                return redirect()
+                    ->back()
+                    ->withInput()
+                    ->withErrors(['userImage' => '画像がアップロードされていないか不正なデータです']);
+            }
+        }
+
+//        javaScriptでlat,lngを取得し、それをcreate.blade.phpで受け取る
+        $live->lat = $request->lat;
+        $live->lng = $request->lng;
+
+//        ログイン中のuser_idをいれる
+        $live->user_id =Auth::user()->id;
         $live->save();
 
         // トップページへリダイレクトさせる

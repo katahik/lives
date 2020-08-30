@@ -29,6 +29,7 @@ function setLocation(pos){
         position: latlng,
         map: mapObj,
         title: '現在地',
+        icon: "/storage/icon.png",
     });
 
     // result.blade.phpから渡ってきたlivesを使用することができる

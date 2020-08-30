@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="text-center">
+        <h4>ログインすることで、「行ったライブ」機能が使え、行ったライブを簡単に思い出すことができます。</h4>
+        <br>
         <h1>Log in</h1>
     </div>
 

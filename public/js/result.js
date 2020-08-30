@@ -4,9 +4,10 @@ function setLocation(pos){
     lat = pos.coords.latitude;
     lng = pos.coords.longitude;
 
-    // 緯度・経度を表示
-    document.getElementById("table_lat").innerHTML = lat;
-    document.getElementById("table_lng").innerHTML = lng;
+    // //緯度経度の表示は必要ないためコメント
+    // // 緯度・経度を表示
+    // document.getElementById("table_lat").innerHTML = lat;
+    // document.getElementById("table_lng").innerHTML = lng;
 
     // google map へ表示するための設定
     latlng = new google.maps.LatLng(lat,lng);

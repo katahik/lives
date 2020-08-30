@@ -51,7 +51,13 @@
         {{-- going／ungoingボタン --}}
         @include('user_going.going_button')
     </aside>
-
+@if (Auth::check())
+    @can('system-only') {{-- システム管理者権限のみに表示される --}}
     {{-- メッセージ編集ページへのリンク --}}
-    {!! link_to_route('lives.edit', 'このライブを編集', ['live' => $live->id], ['class' => 'btn btn-light']) !!}
+        {!! link_to_route('lives.edit', 'このライブを編集', ['live' => $live->id], ['class' => 'btn btn-light']) !!}
+    @endcan
+@elseif(Auth::user()->id === $live->user_id)
+        {!! link_to_route('lives.edit', 'このライブを編集', ['live' => $live->id], ['class' => 'btn btn-light']) !!}
+@endif
+
 @endsection

@@ -29,7 +29,15 @@ function setLocation(pos){
         position: latlng,
         map: mapObj,
         title: '現在地',
+        // iconをデフォルトのものから、storage/app/publicに格納した画像へ変更した
         icon: "/storage/icon.png",
+        // マーカーのラベルを作成
+        label:{
+            fontFamily: 'sans-serif',
+            fontSize: '20px',
+            fontWeight: '200',
+            text: "I'm here",
+        }
     });
 
     // result.blade.phpから渡ってきたlivesを使用することができる

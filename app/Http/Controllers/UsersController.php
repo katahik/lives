@@ -15,7 +15,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show($id,Request $request)
     {
         // idの値でユーザを検索して取得
         $user = User::findOrFail($id);
@@ -23,11 +23,17 @@ class UsersController extends Controller
         $user->loadRelationshipCounts();
         // ユーザの行ったライブ一覧を取得
         $wentLive = $user->wentLive()->paginate(10);
+        $value = $request->input('value');
 
-
-        //sprintf(文字列のフォーマット, 入力したい文字１,　入力したい文字２,・・)
-        //%04d が Y(4桁の年) に、次の %02d が m(2桁の月)に対応
-        $dateStr = sprintf('%04d-%02d-01', date('Y'), date('m'));
+        if($request){
+            //sprintf(文字列のフォーマット, 入力したい文字１,　入力したい文字２,・・)
+            //%04d が Y(4桁の年) に、次の %02d が m(2桁の月)に対応
+            $dateStr = sprintf('%04d-%02d-01', date('Y'), date('m'));
+        }else{
+            //sprintf(文字列のフォーマット, 入力したい文字１,　入力したい文字２,・・)
+            //%04d が Y(4桁の年) に、次の %02d が m(2桁の月)に対応
+            $dateStr = sprintf('%04d-%02d-01', date('Y'), date('m'));
+        }
         $date = new Carbon($dateStr);
         //ここで dd($date); すると8月1日がとれる
         $date->dayOfWeek;
@@ -55,6 +61,7 @@ class UsersController extends Controller
             'user' => $user,
             'wentLives' => $wentLive,
             'dates' => $dates,
+            'value' => $value,
         ]);
     }
     public function destroy(Request $request) {

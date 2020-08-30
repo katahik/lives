@@ -38,10 +38,11 @@
             </tr>
             @endforeach
     @endif
-{{--            ここで前月、翌月の文字で移動できるようにする--}}
-            {!! link_to_route('lives.show','翌月', ['live' => $wentLive->id]) !!}
-
         <table class="table table-bordered">
+            <p>{{ date('m') }}</p>
+            {{$value}}
+{{--            ここで前月、翌月の文字で移動できるようにする--}}
+            {!! link_to_route('users.show','>', ['user' => $user->id,'year'=>date('Y'),'month'=>date('m')]) !!}
             <thead>
             <tr>
                 @foreach (['日', '月', '火', '水', '木', '金', '土'] as $dayOfWeek)

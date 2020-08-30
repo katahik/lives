@@ -31,6 +31,10 @@ class UsersController extends Controller
 //        dd($dateStr);
         $date = new Carbon($dateStr);
 //        ここで dd($date); すると8月1日がとれる
+        $date->dayOfWeek;
+        $count = 31 + $date->dayOfWeek;
+        // 右下の隙間のための計算。
+        $count = ceil($count / 7) * 7;
 
         // カレンダーを四角形にするため、前月となる左上の隙間用のデータを入れるためずらす
 //        subday 日数を減らす
@@ -38,18 +42,12 @@ class UsersController extends Controller
         $date->subDay($date->dayOfWeek);
 //        ここでdd($date);すると7月26日が取れる
 
-        // 右下の隙間のための計算。
-        $count = 31 + $date->dayOfWeek;
-//        ここで dd($count); したら31がとれる
-        $count = ceil($count / 7) * 7;
-//        ここで dd($count); したら35がとれる
         $dates = [];
         for ($i = 0; $i < $count; $i++, $date->addDay()) {
             // copyしないと全部同じオブジェクトを入れてしまうことになる
             $dates[] = $date->copy();
         }
 //        dd($dates);
-
         // ユーザ詳細ビューでそれを表示
         return view('users.show', [
             'user' => $user,

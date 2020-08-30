@@ -38,6 +38,7 @@
             </tr>
             @endforeach
     @endif
+
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -52,7 +53,7 @@
                     <tr>
                         @endif
                         <td
-                            @if ($date->month != $currentMonth)
+                            @if ($date->month != date('m'))
                             class="bg-secondary"
                             @endif
                         >

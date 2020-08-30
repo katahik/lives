@@ -38,6 +38,8 @@
             </tr>
             @endforeach
     @endif
+{{--            ここで前月、翌月の文字で移動できるようにする--}}
+            {!! link_to_route('lives.show','翌月', ['live' => $wentLive->id]) !!}
 
         <table class="table table-bordered">
             <thead>

@@ -3,10 +3,10 @@
 @section('content')
 
 <h1>ライブ一覧</h1>
+<!--チェックをつけたライブの削除-->
 {!! Form::model($lives, ['route' => ['lives.destroy'], 'method' => 'delete']) !!}
 {!! Form::submit('チェックを入れたライブを削除する', ['class' => 'btn btn-danger']) !!}
 
-<!--この画面内にて、チェックをつけたライブの削除ができるように-->
 {!! link_to_route('lives.create', '新規ライブの作成', [], ['class' => 'btn btn-primary']) !!}
 
 

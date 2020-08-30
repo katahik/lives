@@ -10,7 +10,7 @@
 @else
     <img src="{{ Storage::disk('s3')->url($live->live_image)}}" width="200px" height="200px">
 @endif
-    <h1>{{ $live->title }} の詳細</h1>
+    <h1>{{ $live->title }}</h1>
 
     <table class="table table-striped">
         <tr>

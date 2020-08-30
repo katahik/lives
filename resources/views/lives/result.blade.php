@@ -4,6 +4,7 @@
             <h1>今日のライブ</h1>
             <div class="container">
                 <div class="row">
+{{--                 レスポンシブデザインでデスクトップ中以上なら横に配置、未満なら上下に配置--}}
                     <div class="col-md-8" id="map" style="height:500px"></div>
                     <div class="col-md-4">
                         <table class="table table-striped">

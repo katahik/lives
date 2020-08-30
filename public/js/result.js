@@ -13,13 +13,11 @@ function setLocation(pos){
     latlng = new google.maps.LatLng(lat,lng);
     map = document.getElementById("map");
     opt = {
-        zoom: 15,
+        zoom: 13,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        scrollwheel: false,
         scaleControl: true,
         disableDoubleClickZoom: true,
-        draggable: false,
         clickableIcons: false, //地図上のアイコンを押せないように
     };
 

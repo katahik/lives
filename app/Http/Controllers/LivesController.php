@@ -191,12 +191,13 @@ class LivesController extends Controller
     }
 
     public function result(Request $request){
-//        dd($request);
-//        検索結果を$lives変数に代入
+
+        //検索結果を$lives変数に代入
+
         $lat = $request->lat;
         $lng = $request->lng;
 
-//        文字列型をfloatで浮動小数点型へ変更
+        //文字列型をfloatで浮動小数点型へ変更
         $lat1 = (float)$lat;
         $lng1 = (float)$lng;
 
@@ -208,7 +209,6 @@ class LivesController extends Controller
 //        半径（正方形だが）5km  0.010966404715491394 * 5 = 0.05483202357
         $maxLng=$lng1+0.05483202357;
         $minLng=$lng1-0.05483202357;
-
 
 //        config/const.phpから持ってこようとしたものの、おそらく型変換？の関係で計算できず、断念
 //        $maxLat=$lat+(config('const.latPerKm')*5);
@@ -228,7 +228,12 @@ class LivesController extends Controller
 
 //        $livesをlives.resultで表示
         return view('lives.result', [
+//            検索結果のlivesをbladeへ渡す
             'lives' => $lives,
+//            現在地緯度latをbladeへ渡す
+            'lat'=>$lat,
+//            現在地経度lngをbladeへ渡す
+            'lng'=>$lng,
         ]);
     }
 }

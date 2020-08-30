@@ -1,13 +1,6 @@
-function setLocation(pos){
 
-    // 緯度・経度を取得
-    lat = pos.coords.latitude;
-    lng = pos.coords.longitude;
-
-    // //緯度経度の表示は必要ないためコメント
-    // // 緯度・経度を表示
-    // document.getElementById("table_lat").innerHTML = lat;
-    // document.getElementById("table_lng").innerHTML = lng;
+// googleMapを持ってくるときに,callback=initMapと記述しているため、initMapを作成
+function initMap(){
 
     // google map へ表示するための設定
     latlng = new google.maps.LatLng(lat,lng);
@@ -58,48 +51,35 @@ function setLocation(pos){
         })
 
         // ライブ位置情報のマーカーをクリックした際、ライブ詳細画面へ遷移
-        //マーカーをクリックしたとき
-        marker[i].addEventListener('click', function (e) {
-            console.log('click');
+        //マーカーをクリックしたとき※addEventListnerはgoogleMapでは使えない
+        marker[i].addListener('click', function (e) {
+            // =以降、URLを指定する、 lives/live(各ライブid)　へ遷移　lives/1とか
+            window.location = `/lives/${live.id}`
         });
-
-
-        // 以下参考コード
-        // マーカーにクリックイベントを追加
-        // function markerEvent(i) {
-        //     marker[i].addListener('click', function() { // マーカーをクリックしたとき
-        //         closeInfoWindow();
-        //         infoWindow[i].open(map, marker[i]); // 吹き出しの表示
-        //         //マーカー色変更
-        //         changeIcon(i);
-        //         //リストの色変更
-        //         changeCurrent(i);
-        //     });
-        // }
     }
 }
 
 
 // エラー時に呼び出される関数
-function showErr(err){
-    switch(err.code){
-        case 1 : alert("位置情報の利用が許可されていません"); break;
-        case 2 : alert("デバイスの位置が判定できません"); break;
-        case 3 : alert("タイムアウトしました"); break;
-        default : alert(err.message);
-    }
-}
-
-// geolocation に対応しているか否かを確認
-if("geolocation" in navigator){
-    var opt = {
-        "enableHighAccuracy": true,
-        "timeout": 10000,
-        "maximumAge": 0,
-    };
-    navigator.geolocation.getCurrentPosition(setLocation, showErr, opt);
-}else{
-    alert("ブラウザが位置情報取得に対応していません");
-}
-
+// function showErr(err){
+//     switch(err.code){
+//         case 1 : alert("位置情報の利用が許可されていません"); break;
+//         case 2 : alert("デバイスの位置が判定できません"); break;
+//         case 3 : alert("タイムアウトしました"); break;
+//         default : alert(err.message);
+//     }
+// }
+//
+// // geolocation に対応しているか否かを確認
+// if("geolocation" in navigator){
+//     var opt = {
+//         "enableHighAccuracy": true,
+//         "timeout": 10000,
+//         "maximumAge": 0,
+//     };
+//     navigator.geolocation.getCurrentPosition(setLocation, showErr, opt);
+// }else{
+//     alert("ブラウザが位置情報取得に対応していません");
+// }
+//
 

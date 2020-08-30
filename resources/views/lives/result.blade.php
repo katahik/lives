@@ -65,14 +65,20 @@
                     </div>
                 </div>
             </div>
-
 @endsection
 
 @section('script')
-    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
     <script>
-        // result.jsで使用するvar livesに、controllerで定義した$livesの各要素を配列にして、json形式にし、result.jsに渡す
-        var lives = @json($lives->toArray());
+        // result.jsで使用する定数livesに、controllerで定義した$livesの各要素を配列にして、json形式にし、result.jsに渡す
+        const lives = @json($lives->toArray());
+
+        // result.jsで使用する定数latに、controllerで定義した$latをいれて、result.jsに渡す
+        const lat = {{ $lat }};
+
+        // result.jsで使用する定数lngに、controllerで定義した$lngをいれて、result.jsに渡す
+        const lng = {{ $lng }};
     </script>
     <script src="{{ asset('/js/result.js') }}"></script>
+{{--    上記の処理をしてから、googleMapを読み込まないとエラーが出てくる--}}
+    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
 @endsection

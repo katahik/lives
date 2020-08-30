@@ -42,7 +42,8 @@
             <p>{{ date('m') }}</p>
             {{$value}}
 {{--            ここで前月、翌月の文字で移動できるようにする--}}
-            {!! link_to_route('users.show','>', ['user' => $user->id,'year'=>date('Y'),'month'=>date('m')]) !!}
+{{--            URLにクエリストリングで翌月のパラメーターを付与--}}
+            {!! link_to_route('users.show','>', ['user' => $user->id,'yearMonth'=>date('Y-m', strtotime(date('Y-m-01').'+1 month'))]) !!}
             <thead>
             <tr>
                 @foreach (['日', '月', '火', '水', '木', '金', '土'] as $dayOfWeek)

@@ -29,6 +29,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 //結果の表示
 Route::get('result','LivesController@result')->name('lives.result');
+//ライブの詳細
+Route::get('lives/{live}', 'LivesController@show')->name('lives.show');
 
 
 //ログイン中の一般ユーザーが見れる群
@@ -55,7 +57,6 @@ Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
       Route::resource('lives', 'LivesController',['only' => ['index','store','create']]);
     Route::delete('lives', 'LivesController@destroy')->name('lives.destroy');
     Route::put('lives/{live}', 'LivesController@update')->name('lives.update');
-    Route::get('lives/{live}', 'LivesController@show')->name('lives.show');
     Route::get('lives/{live}/edit', 'LivesController@edit')->name('lives.edit');
 
 });

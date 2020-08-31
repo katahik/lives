@@ -24,18 +24,21 @@ class UsersController extends Controller
         // ユーザの行ったライブ一覧を取得
         $wentLive = $user->wentLive()->paginate(10);
 
-        $value = $request->input('value');
+        //Requestクラスのinputメソッドでクエリパラメータの取得(引数にはクエリパラメーターのキーを指定)
+        $yearMonth = $request->input('yearMonth');
 
-        //ユーザーが < > にて月の指定をした場合とデフォルトで当月のカレンダーの出し分け
-        if($request){
-            //sprintf(文字列のフォーマット, 入力したい文字１,　入力したい文字２,・・)
-            //%04d が Y(4桁の年) に、次の %02d が m(2桁の月)に対応
-            $dateStr = sprintf('%04d-%02d-01', date('Y'), date('m'));
-        }else{
-            //sprintf(文字列のフォーマット, 入力したい文字１,　入力したい文字２,・・)
-            //%04d が Y(4桁の年) に、次の %02d が m(2桁の月)に対応
-            $dateStr = sprintf('%04d-%02d-01', date('Y'), date('m'));
-        }
+        //$yearMonthの1日の曜日を取得
+        //'N' 数字1(月曜)〜7(日曜)
+        //strtotime 英文形式の日付を Unix タイムスタンプへ変換してくれる
+        $n = date('N',strtotime($yearMonth));
+
+        //指定した日の週の週初め（日曜日）の日付を取得するロジック
+        //まず,$yearMonthをstrtotimeにいれてタイムスタンプへ変換。-{$n}で曜日番号で引く。それを,Y-m-dで成型する。
+        $beginning_week_date = date('Y-m-d', strtotime("-{$n} day", strtotime($yearMonth)));
+
+        //sprintf(文字列のフォーマット, 入力したい文字１,　入力したい文字２,・・)
+        //%04d が Y(4桁の年) に、次の %02d が m(2桁の月)に対応
+        $dateStr = sprintf('%04d-%02d-01', date('Y'), date('m'));
 
         $date = new Carbon($dateStr);
         //ここで dd($date); すると8月1日がとれる
@@ -64,7 +67,6 @@ class UsersController extends Controller
             'user' => $user,
             'wentLives' => $wentLive,
             'dates' => $dates,
-            'value' => $value,
         ]);
     }
     public function destroy(Request $request) {

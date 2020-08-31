@@ -67,6 +67,7 @@ class UsersController extends Controller
             'user' => $user,
             'wentLives' => $wentLive,
             'dates' => $dates,
+            'beginning_week_date' => $beginning_week_date,
         ]);
     }
     public function destroy(Request $request) {

@@ -39,13 +39,13 @@
             @endforeach
     @endif
         <table class="table table-bordered">
-            <p>{{ date('m') }}</p>
+
             {{--URLにクエリストリングで翌月のパラメーターを付与--}}
-            <!--formatにてyear(month)のクエリストリングにcontrollerから渡ってきた、$firstDayのY(n)のみをformat メソッドで抽出した-->
+            <!--formatにてyear(month)のクエリストリングにcontrollerから渡ってきた、$firstDayのY(n)のみをformatメソッドで抽出した-->
+            {{--addMonthメソッドはCarbonのインスタンスに1か月をプラスするメソッド->'year'の方でもこのメソッドを入れることで、12月になったら翌年になる--}}
+            {!! link_to_route('users.show','<', ['user' => $user->id,'year'=>$firstDay->copy()->subMonth()->format('Y'),'month'=>$firstDay->copy()->subMonth()->format('n')]) !!}
+            <p>{{ $firstDay->copy()->format('Y-n') }}</p>
             {!! link_to_route('users.show','>', ['user' => $user->id,'year'=>$firstDay->copy()->addMonth()->format('Y'),'month'=>$firstDay->copy()->addMonth()->format('n')]) !!}
-            <!--{!! link_to_route('users.show','>', ['user' => $user->id,'year'=>$firstDay->format('Y'),'month'=>$firstDay->copy()->addMonth()->format('n')]) !!}-->
-            <!--{!! link_to_route('users.show','>', ['user' => $user->id,'year'=>$firstDay->copy(),'month'=>$firstDay->copy()->addMonth()]) !!}-->
-{{--            {!! link_to_route('users.show','>', ['user' => $user->id,'year'=>date('Y',$year),'month'=>date('m',$month)]) !!}--}}
 
             {{--表を作成する際には<tr>～</tr>で表の横部分を指定し、その中に<th>～</th>や<td>～</td>で表題や縦軸を指定してセルを定義--}}
             <thead>
@@ -69,7 +69,7 @@
                 <td
                     {{--$date->monthで一つ一つの$date内に入っている日付の月と現在の月が違う場合,背景をグレーに--}}
                     {{--date('m')にて現在の月を取得--}}
-                    @if ($date->month != date('m'))
+                    @if ($date->month != $firstDay->copy()->format('n'))
                         class="bg-secondary"
                     @endif
                 >

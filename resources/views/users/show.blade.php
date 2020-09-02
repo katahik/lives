@@ -41,6 +41,7 @@
         <table class="table table-bordered">
 
             {{--URLにクエリストリングで翌月のパラメーターを付与--}}
+            {{-- ->copy()としないと$firstDayそのものの値が変わってしまうから--}}
             <!--formatにてyear(month)のクエリストリングにcontrollerから渡ってきた、$firstDayのY(n)のみをformatメソッドで抽出した-->
             {{--addMonthメソッドはCarbonのインスタンスに1か月をプラスするメソッド->'year'の方でもこのメソッドを入れることで、12月になったら翌年になる--}}
             {!! link_to_route('users.show','<', ['user' => $user->id,'year'=>$firstDay->copy()->subMonth()->format('Y'),'month'=>$firstDay->copy()->subMonth()->format('n')]) !!}
@@ -73,7 +74,12 @@
                         class="bg-secondary"
                     @endif
                 >
-                {{ $date->day }}
+                    @if($date->copy()->format('Y-n-d') === $wentLive->date )
+                        {{ $date->day }}
+                        {{ $wentLive->title }}
+                    @else
+                        {{ $date->day }}
+                    @endif
                 </td>
                 {{--$dateが6(日曜日)である場合、行を閉じて改行する--}}
                 @if ($date->dayOfWeek == 6)

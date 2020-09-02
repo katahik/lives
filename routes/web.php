@@ -29,8 +29,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 //結果の表示
 Route::get('result','LivesController@result')->name('lives.result');
-//ライブの詳細
-Route::get('lives/{live}', 'LivesController@show')->name('lives.show');
 
 
 //ログイン中の一般ユーザーが見れる群
@@ -70,3 +68,8 @@ Route::group(['middleware' => ['auth', 'can:system-only']], function () {
 });
 
 Auth::routes();
+
+
+//ライブの詳細
+//なぜかcan:admin-higherの前にこの記述があるとcreateというライブをshowしようとするので、この位置に記述
+Route::get('lives/{live}', 'LivesController@show')->name('lives.show');

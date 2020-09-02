@@ -34,7 +34,7 @@ class UsersController extends Controller
         }else{
             $firstDay = Carbon::now()->firstOfMonth();
         }
-
+// dd($firstDay);
         //Carbonで$year,$monthのデータをもとに日にちデータを作成
 //        $yearMonth = Carbon::createFromDate($year, $month);
 //        dd($yearMonth);

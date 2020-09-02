@@ -40,9 +40,9 @@
     @endif
         <table class="table table-bordered">
             <p>{{ date('m') }}</p>
-{{--            ここで前月、翌月の文字で移動できるようにする--}}
-{{--            URLにクエリストリングで翌月のパラメーターを付与--}}
-            {!! link_to_route('users.show','>', ['user' => $user->id,'yearMonth'=>date('Y-m', strtotime(date('Y-m-01').'+1 month'))]) !!}
+            {{--ここで前月、翌月の文字で移動できるようにする--}}
+            {{--URLにクエリストリングで翌月のパラメーターを付与--}}
+            {!! link_to_route('users.show','>', ['user' => $user->id,'year'=>date('Y',$year),'month'=>date('m',$month)]) !!}
 
             {{--表を作成する際には<tr>～</tr>で表の横部分を指定し、その中に<th>～</th>や<td>～</td>で表題や縦軸を指定してセルを定義--}}
             <thead>

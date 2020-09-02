@@ -25,16 +25,22 @@ class UsersController extends Controller
         $wentLive = $user->wentLive()->paginate(10);
 
         //Requestクラスのinputメソッドでクエリパラメータの取得(引数にはクエリパラメーターのキーを指定)
-        $yearMonth = $request->input('yearMonth');
+        $year = $request->input('year');
+        $month = $request->input('month');
+
+        //Carbonで$year,$monthのデータをもとに日にちデータを作成
+        $yearMonth = Carbon::createFromDate($year, $month);
+
+        dd($yearMonth);
 
         //$yearMonthの1日の曜日を取得
         //'N' 数字1(月曜)〜7(日曜)
         //strtotime 英文形式の日付を Unix タイムスタンプへ変換してくれる
-        $n = date('N',strtotime($yearMonth));
+//        $n = date('N',strtotime($yearMonth));
 
         //指定した日の週の週初め（日曜日）の日付を取得するロジック
         //まず,$yearMonthをstrtotimeにいれてタイムスタンプへ変換。-{$n}で曜日番号で引く。それを,Y-m-dで成型する。
-        $beginning_week_date = date('Y-m-d', strtotime("-{$n} day", strtotime($yearMonth)));
+//        $beginning_week_date = date('Y-m-d', strtotime("-{$n} day", strtotime($yearMonth)));
 
         //sprintf(文字列のフォーマット, 入力したい文字１,　入力したい文字２,・・)
         //%04d が Y(4桁の年) に、次の %02d が m(2桁の月)に対応
@@ -67,7 +73,9 @@ class UsersController extends Controller
             'user' => $user,
             'wentLives' => $wentLive,
             'dates' => $dates,
-            'beginning_week_date' => $beginning_week_date,
+            'yearMonth'=>$yearMonth,
+            'year'=>$year,
+            'month'=>$month,
         ]);
     }
     public function destroy(Request $request) {

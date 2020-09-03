@@ -195,7 +195,18 @@ class LivesController extends Controller
     public function result(Request $request){
 
         //検索結果を$lives変数に代入
-    
+
+        //リクエストで渡ってきたものを変数で受け取る
+        //freewordは入力がある場合は直接$freewordを使って,ない場合は、('*')で全件表示させる,ためここでは入力わけを行わない
+        $freeword = $request->input('freeword');
+        //下記で入力ある場合、ない場合で入力わけ
+        $date = $request->input('date');
+        //categoryは入力がある場合は直接$categoryを使って,ない場合は、('*')で全件表示させる,ためここでは入力わけを行わない
+        $category = $request->input('category');
+
+//        ちゃんと受け取れている
+//        dd($freeword, $date,$category);
+
         $lat = $request->lat;
         $lng = $request->lng;
 
@@ -220,11 +231,21 @@ class LivesController extends Controller
 
 //dd($lat,$maxLat,$minLat,$lng,$maxLng,$minLng);
 
-//        今日の日付を探す
-        $lives = Live::where('date',Carbon::today())
-//            latの値が$minLat<=lat<=$maxLat;
+//        !emptyで$dateの検索欄に入力があった場合で入力わけ
+        if(!empty($date)){
+            $theDay = $date;
+        }else{
+            $theDay = Carbon::today()->format('Y-m-d');
+        }
+
+        //今日か指定の日で探す
+        //$freewordに値が入っていたら、その値、入っていなかったら全件検索
+        //$categoryに値が入っていたら、その値、入っていなかったら全件検索
+
+        $lives = Live::where('date',$theDay)
+            //latの値が$minLat<=lat<=$maxLat;
             ->whereBetween('lat',[$minLat,$maxLat])
-//            lngの値が$minLng<=lng<=$maxLng;
+            //lngの値が$minLng<=lng<=$maxLng;
             ->whereBetween('lng',[$minLng,$maxLng])
             ->get();
 

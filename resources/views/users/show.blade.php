@@ -37,7 +37,7 @@
             <thead>
             <tr class="col-md-12">
                 @foreach (['日', '月', '火', '水', '木', '金', '土'] as $dayOfWeek)
-                    <th width="100">{{ $dayOfWeek }}</th>
+                    <th width=100>{{ $dayOfWeek }}</th>
                 @endforeach
             </tr>
             </thead>

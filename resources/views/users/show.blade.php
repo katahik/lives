@@ -22,23 +22,8 @@
         </div>
     </div>
     <h2>行ったライブ</h2>
-    @if (count($wentLives) > 0)
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ライブ名</th>
-                    <th>日にち</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ($wentLives as $wentLive)
-            <tr>
-                <td>{!! link_to_route('lives.show', $wentLive->title, ['live' => $wentLive->id]) !!}</td>>
-                <td>{{ $wentLive->date }}</td>
-            </tr>
-            @endforeach
-    @endif
-        <table class="table table-bordered">
+        <table class="table table-bordered container">
+            <div class="row">
 
             {{--URLにクエリストリングで翌月のパラメーターを付与--}}
             {{-- ->copy()としないと$firstDayそのものの値が変わってしまうから--}}
@@ -50,9 +35,9 @@
 
             {{--表を作成する際には<tr>～</tr>で表の横部分を指定し、その中に<th>～</th>や<td>～</td>で表題や縦軸を指定してセルを定義--}}
             <thead>
-            <tr>
+            <tr class="col-md-12">
                 @foreach (['日', '月', '火', '水', '木', '金', '土'] as $dayOfWeek)
-                    <th>{{ $dayOfWeek }}</th>
+                    <th width="100">{{ $dayOfWeek }}</th>
                 @endforeach
             </tr>
             </thead>
@@ -63,29 +48,34 @@
                 {{--dayOfWeek 週のうちの何日目か 0 (日曜)から 6 (土曜)--}}
                 @if ($date->dayOfWeek == 0)
                 {{--「table row」の略で表の行部分（横方向）を指定するタグ <tr>～</tr>で表の横部分を指定--}}
-                    <tr>
+                <tr class="col-md-12">
                 @endif
-
                 {{--「table data」の略で、テーブルセルの内容を指定--}}
-                <td
+                <td height="100"
                     {{--$date->monthで一つ一つの$date内に入っている日付の月と現在の月が違う場合,背景をグレーに--}}
                     {{--date('m')にて現在の月を取得--}}
                     @if ($date->month != $firstDay->copy()->format('n'))
                         class="bg-secondary"
                     @endif
                 >
-                    @if($date->copy()->format('Y-n-d') === $wentLive->date )
-                        {{ $date->day }}
-                        {{ $wentLive->title }}
-                    @else
-                        {{ $date->day }}
-                    @endif
+                    {{--カレンダーの枠の中を作成--}}
+                    {{--まずすべての枠に日にちを入れる--}}
+                    {{ $date->day }}
+                    {{--controllerから渡ってきた、$wentLivesを$wentLiveにひとつひとついれる--}}
+                    @foreach ($wentLives as $wentLive)
+                        {{--$dateをformat('Y-m-d')で整形(2020-08-21等)--}}
+                        {{--$wentLive->dateの方はMySQLのデフォルトで2020-08-21に整形されている--}}
+                        @if($date->copy()->format('Y-m-d') === $wentLive->date )
+                            <br>{!! link_to_route('lives.show', substr($wentLive->title,0,4)."...", ['live' => $wentLive->id]) !!}
+                        @endif
+                    @endforeach
                 </td>
                 {{--$dateが6(日曜日)である場合、行を閉じて改行する--}}
                 @if ($date->dayOfWeek == 6)
-                    </tr>
+                </tr>
                 @endif
             @endforeach
             </tbody>
+            </div>
         </table>
 @endsection

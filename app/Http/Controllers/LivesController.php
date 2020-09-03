@@ -195,7 +195,7 @@ class LivesController extends Controller
     public function result(Request $request){
 
         //検索結果を$lives変数に代入
-
+    
         $lat = $request->lat;
         $lng = $request->lng;
 

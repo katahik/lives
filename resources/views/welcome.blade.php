@@ -30,13 +30,18 @@
                 {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-10 form-control']) !!}
             </div>
 
-{{--            デフォルトで現在地を選択した状態で検索する--}}
-            <div class="form-group row">
-                {!! Form::label('location', '場所:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('location', old('location'), ['class' => 'col-10 form-control' ,'placeholder' => '現在地周辺']) !!}
-            </div>
+            {{-- デフォルトで現在地を選択した状態で検索する--}}
+             <div class="form-group row">
+             {!! Form::label('location', '場所:',['class'=>"col-2 col-form-label"]) !!}
+             {!! Form::text('location', old('location'), ['class' => 'col-10 form-control' ,'placeholder' => '現在地周辺']) !!}
+             </div>
+            {{--隠しフォームでlivescontrollerに位置情報を渡す--}}
+            {{--lat用--}}
+            {!! Form::hidden('lat','lat',['id' => 'lat_id']) !!}
+            {{--lng用--}}
+            {!! Form::hidden('lng','lng',['id' => 'lng_id']) !!}
 
-{{--            デフォルトで全カテゴリーを設定した状態で検索する--}}
+            {{--デフォルトで全カテゴリーを設定した状態で検索する--}}
             <div class="form-group row">
                 {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::select('category', ['ロック','ポップス','パンク'] ,old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}

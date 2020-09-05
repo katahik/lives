@@ -211,7 +211,11 @@ class LivesController extends Controller
 
 //        ちゃんと受け取れている
 //        dd($freeword, $date,$category,$lat,$lng);
-        Log::debug('$freeword="'.$freeword.'"');
+
+//        debug機能 storage/logsの中に吐き出される
+//        Log::debug('$freeword="'.$freeword.'"');
+//        Log::debug('$date="'.$date.'"');
+//        Log::debug('$category="'.$category.'"');
 
         //文字列型をfloatで浮動小数点型へ変更
         $lat1 = (float)$lat;
@@ -264,12 +268,12 @@ class LivesController extends Controller
         if(!empty($lng)){
             $query->whereBetween('lng',[$minLng,$maxLng]);
         }
-        $employees_sql = $query->toSql();
-        Log::debug('$employees_sql="'.$employees_sql.'""');
+        //debug機能 storage/logsの中に吐き出される
+        $search_sql = $query->toSql();
+        Log::debug('$search_sql="'.$search_sql.'""');
 
         $lives = $query->get();
 
-//\Log::info(‘ログ出力テスト’);
 //        $livesをlives.resultで表示
         return view('lives.result', [
 //            検索結果のlivesをbladeへ渡す

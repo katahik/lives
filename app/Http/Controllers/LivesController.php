@@ -213,9 +213,9 @@ class LivesController extends Controller
 //        dd($freeword, $date,$category,$lat,$lng);
 
 //        debug機能 storage/logsの中に吐き出される
-//        Log::debug('$freeword="'.$freeword.'"');
-//        Log::debug('$date="'.$date.'"');
-//        Log::debug('$category="'.$category.'"');
+        Log::debug('$freeword="'.$freeword.'"');
+        Log::debug('$date="'.$date.'"');
+        Log::debug('$category="'.$category.'"');
 
         //文字列型をfloatで浮動小数点型へ変更
         $lat1 = (float)$lat;

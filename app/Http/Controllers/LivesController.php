@@ -255,9 +255,11 @@ class LivesController extends Controller
         }
 
 //        $freewordに値があったらその値を全カラムから検索、なかったら指定しない
+//        \DB::raw() クエリの中でSQLを直接使用できる
         if(!empty($freeword)){
-            $query->where('*','like', '%'.$freeword.'%');
+            $query->where( \DB::raw('concat(title,date,venue,category,artist)'), 'like', '%' . $freeword . '%');
         }
+
 //        $categoryに値があったら、その値を検索、なかったら全カテゴリーから検索
         if(!empty($category)){
             $query->where('category','like', '%'.$category.'%');
@@ -268,6 +270,7 @@ class LivesController extends Controller
         if(!empty($lng)){
             $query->whereBetween('lng',[$minLng,$maxLng]);
         }
+
         //debug機能 storage/logsの中に吐き出される
         $search_sql = $query->toSql();
         Log::debug('$search_sql="'.$search_sql.'""');

@@ -46,12 +46,12 @@
                             {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label date"]) !!}
                             {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-10 form-control']) !!}
                         </div>
-
+                        {{--一旦場所は考えない--}}
                         {{--            デフォルトで現在地を選択した状態で検索する--}}
-                        <div class="form-group row">
-                            {!! Form::label('location', '場所:',['class'=>"col-2 col-form-label"]) !!}
-                            {!! Form::text('location', old('location'), ['class' => 'col-10 form-control' ,'placeholder' => '現在地周辺']) !!}
-                        </div>
+                        {{--<div class="form-group row">--}}
+{{--                            {!! Form::label('location', '場所:',['class'=>"col-2 col-form-label"]) !!}--}}
+{{--                            {!! Form::text('location', old('location'), ['class' => 'col-10 form-control' ,'placeholder' => '現在地周辺']) !!}--}}
+{{--                        </div>--}}
 
                         {{--            デフォルトで全カテゴリーを設定した状態で検索する--}}
                         <div class="form-group row">

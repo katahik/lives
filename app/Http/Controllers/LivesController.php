@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Live;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Log;
 
 class LivesController extends Controller
 {
@@ -191,10 +192,11 @@ class LivesController extends Controller
         Live::destroy($request->ids);
         return redirect('lives');
     }
-
     public function result(Request $request){
 
         //検索結果を$lives変数に代入
+
+        $query = Live::query();
 
         //リクエストで渡ってきたものを変数で受け取る
         //freewordは入力がある場合は直接$freewordを使って,ない場合は、('*')で全件表示させる,ためここでは入力わけを行わない
@@ -204,11 +206,12 @@ class LivesController extends Controller
         //categoryは入力がある場合は直接$categoryを使って,ない場合は、('*')で全件表示させる,ためここでは入力わけを行わない
         $category = $request->input('category');
 
-//        ちゃんと受け取れている
-//        dd($freeword, $date,$category);
-
         $lat = $request->lat;
         $lng = $request->lng;
+
+//        ちゃんと受け取れている
+//        dd($freeword, $date,$category,$lat,$lng);
+        Log::debug('$freeword="'.$freeword.'"');
 
         //文字列型をfloatで浮動小数点型へ変更
         $lat1 = (float)$lat;
@@ -231,24 +234,42 @@ class LivesController extends Controller
 
 //dd($lat,$maxLat,$minLat,$lng,$maxLng,$minLng);
 
-//        !emptyで$dateの検索欄に入力があった場合で入力わけ
+
+//        以前の検索条件
+//        $lives = Live::where('date',$theDay)
+//            //latの値が$minLat<=lat<=$maxLat;
+//            ->whereBetween('lat',[$minLat,$maxLat])
+//            //lngの値が$minLng<=lng<=$maxLng;
+//            ->whereBetween('lng',[$minLng,$maxLng])
+//            ->get();
+
+//        $dateに値があったらその値から検索、なかったら今日の日付から検索
         if(!empty($date)){
-            $theDay = $date;
+            $query->where('date',$date);
         }else{
-            $theDay = Carbon::today()->format('Y-m-d');
+            $query->where('date',Carbon::today()->format('Y-m-d'));
         }
 
-        //今日か指定の日で探す
-        //$freewordに値が入っていたら、その値、入っていなかったら全件検索
-        //$categoryに値が入っていたら、その値、入っていなかったら全件検索
+//        $freewordに値があったらその値を全カラムから検索、なかったら指定しない
+        if(!empty($freeword)){
+            $query->where('*','like', '%'.$freeword.'%');
+        }
+//        $categoryに値があったら、その値を検索、なかったら全カテゴリーから検索
+        if(!empty($category)){
+            $query->where('category','like', '%'.$category.'%');
+        }
+        if(!empty($lat)){
+            $query->whereBetween('lat',[$minLat,$maxLat]);
+        }
+        if(!empty($lng)){
+            $query->whereBetween('lng',[$minLng,$maxLng]);
+        }
+        $employees_sql = $query->toSql();
+        Log::debug('$employees_sql="'.$employees_sql.'""');
 
-        $lives = Live::where('date',$theDay)
-            //latの値が$minLat<=lat<=$maxLat;
-            ->whereBetween('lat',[$minLat,$maxLat])
-            //lngの値が$minLng<=lng<=$maxLng;
-            ->whereBetween('lng',[$minLng,$maxLng])
-            ->get();
+        $lives = $query->get();
 
+//\Log::info(‘ログ出力テスト’);
 //        $livesをlives.resultで表示
         return view('lives.result', [
 //            検索結果のlivesをbladeへ渡す

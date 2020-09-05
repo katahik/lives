@@ -56,7 +56,7 @@
                         {{--            デフォルトで全カテゴリーを設定した状態で検索する--}}
                         <div class="form-group row">
                             {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
-                            {!! Form::select('category', ['ロック','ポップス','パンク'] ,old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}
+                            {!! Form::text('category', old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}
                         </div>
 
                         {!! Form::submit('検索',['class' => 'btn btn-primary']) !!}

@@ -20,8 +20,15 @@ class LivesController extends Controller
 //    /lives で一覧表示させる
     public function index()
     {
-//        ライブの一覧を取得
-        $lives = Live::all();
+//        ログイン中のユーザーIDで管理者ID(1)か主催者ID(1以外)か条件わけ
+        if(Auth::user()->id === 1){
+//        全てのライブの一覧を取得
+            $lives = Live::all();
+        }else{
+//            Liveの中からユーザーidがログイン中のユーザーidのものを取得
+            $lives = Live::where('user_id',Auth::user()->id)
+            ->get();
+        }
 //        ライブ一覧で表示
         return view('lives.index',[
             'lives' => $lives,
@@ -199,11 +206,8 @@ class LivesController extends Controller
         $query = Live::query();
 
         //リクエストで渡ってきたものを変数で受け取る
-        //freewordは入力がある場合は直接$freewordを使って,ない場合は、('*')で全件表示させる,ためここでは入力わけを行わない
         $freeword = $request->input('freeword');
-        //下記で入力ある場合、ない場合で入力わけ
         $date = $request->input('date');
-        //categoryは入力がある場合は直接$categoryを使って,ない場合は、('*')で全件表示させる,ためここでは入力わけを行わない
         $category = $request->input('category');
 
         $lat = $request->lat;

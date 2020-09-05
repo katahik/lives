@@ -50,7 +50,7 @@ Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
 // 主催者以上が見れる群
 
 Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
-//    自分が作成したライブのみ編集できる
+//    自分が作成したライブのみライブ一覧で出てくる
 //    Route::resource('lives', 'LivesController');
     Route::resource('lives', 'LivesController',['only' => ['index','store','create']]);
     Route::delete('lives', 'LivesController@destroy')->name('lives.destroy');

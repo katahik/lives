@@ -1,5 +1,5 @@
 <header class="mb-4">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="nav-bar">
             <a class="navbar-brand js-scroll-trigger" href="/">Lives</a>
             <ul class="navbar-nav text-uppercase ml-auto">

@@ -1,7 +1,11 @@
 @extends('layouts.app')
-
+<div class="welcomeWrapper">
 @section('content')
-    <div class="center jumbotron">
+    <div class="center">
+    <h4 class="subheading">
+        ふと、「音楽が聴きたい」と思ったことありませんか？</br>
+    </h4>
+
         <div class="text-center" id="searchLives">
 {{--            自分の位置情報と会場の位置情報で半径5kmのライブを検索する--}}
             {!! Form::open(['route' => 'lives.result','method' => 'get']) !!}
@@ -11,11 +15,10 @@
 {{--            lng用--}}
             {!! Form::hidden('lng','lng',['id' => 'lng_id']) !!}
 
-            {!! Form::submit('この周辺の今日のライブを探す', ['class' => "btn btn-success btn-block"]) !!}
+            {!! Form::submit("この周辺の今日のライブを探す", ['class' => "btn btn-success btn-block"]) !!}
             {!! Form::close() !!}
         </div>
     </div>
-
     <div class="row">
         <div class="col-12">
             {!! Form::open(['route' => 'lives.result','method' => 'get']) !!}
@@ -47,12 +50,13 @@
                 {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('category', old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}
             </div>
-
-            {!! Form::submit('検索',['class' => 'btn btn-primary']) !!}
-
+        </div>
+        <div class="col-6 search">
+            {!! Form::submit('検索',['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
         </div>
     </div>
+</div>
 
 @section('script')
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>

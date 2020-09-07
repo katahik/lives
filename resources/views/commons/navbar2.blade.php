@@ -7,32 +7,39 @@
                     <div class="row align-items-center">
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-1">
+
                             <div class="logo">
-                                <a href="test.blade.php"><img src="/assets/img/logo/logo.png" alt=""></a>
+                                <a href="/">Lives</a>
                             </div>
+
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-8">
                             <!-- Main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="test.blade.php">Home</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="catagori.html">Catagories</a></li>
-                                        <li><a href="listing.html">Listing</a></li>
-                                        <li><a href="#">Page</a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog_details.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Element</a></li>
-                                                <li><a href="listing_details.html">Listing details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li class="add-list"><a href="listing_details.html"><i class="ti-plus"></i> add Listing</a></li>
-                                        <li class="login"><a href="#">
-                                                <i class="ti-user"></i> Sign in or Register</a>
-                                        </li>
+                                        @if (Auth::check())
+                                            @can('system-only') {{-- システム管理者権限のみに表示される --}}
+                                            <li class="nav-item">{!!link_to_route('users.index', 'ユーザー一覧', [],['class' => 'nav-link']) !!}</li>
+
+                                            @endcan
+                                            @can('admin-higher')　{{-- 管理者権限以上に表示される --}}
+                                            <li class="nav-item">{!!link_to_route('lives.index', 'ライブ一覧', [],['class' => 'nav-link']) !!}</li>
+                                            @endcan
+                                            @can('user-higher') {{-- 一般権限以上に表示される --}}
+                                            {{-- 行ったライブへのリンク--}}
+                                            <li class="nav-item">{!! link_to_route('users.show', '行ったライブ', ['user' => Auth::id()],['class' => 'nav-link']) !!}</li>
+                                            {{--ログアウトボタン--}}
+                                            <li class="nav-item">{!! link_to_route('logout', 'ログアウト', ['user' => Auth::id()],['class' => 'nav-link']) !!}</li>
+                                            @endcan
+                                        @else
+                                            {{--行ったライブへのリンクはログインしていないとログイン画面へ遷移する--}}
+                                            <li class="nav-item">{!!link_to_route('login', '行ったライブ', [], ['class' => 'nav-link']) !!}</li>
+                                            {{-- ログインページへのリンク --}}
+                                            <li class="nav-item">{!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}</li>
+                                            {{-- 会員登録へのリンク --}}
+                                            <li class="nav-item">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>
+                                        @endif
                                     </ul>
                                 </nav>
                             </div>

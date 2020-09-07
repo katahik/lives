@@ -11,6 +11,11 @@
 |
 */
 
+//test
+Route::get('test', function () {
+    return view('test');
+});
+
 //ログインしなくても見れる群
 
 //トップページ

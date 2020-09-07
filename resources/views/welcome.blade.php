@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<div class="welcomeWrapper">
 @section('content')
     <div class="center">
     <h4 class="subheading">
@@ -55,7 +54,6 @@
             {!! Form::submit('検索',['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
         </div>
-    </div>
 </div>
 
 @section('script')

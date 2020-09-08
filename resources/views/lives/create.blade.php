@@ -1,8 +1,10 @@
 @extends('layouts.app')
+@section('headerText')
+    ライブ新規作成ページ
+@endsection
 
 @section('content')
 
-    <h1>ライブ新規作成ページ</h1>
 
     <div class="row">
         <div class="col-12">

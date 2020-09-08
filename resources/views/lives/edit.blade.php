@@ -1,8 +1,8 @@
 @extends('layouts.app')
-
 @section('content')
-
-    <h1> {{ $live->title }} を編集する</h1>
+@section('headerText')
+    {{ $live->title }} を編集する
+@endsection
 
     <div class="row">
         <div class="col-6">

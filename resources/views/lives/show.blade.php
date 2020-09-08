@@ -1,5 +1,7 @@
-@extends('layouts.top')
-
+@extends('layouts.app')
+@section('headerText')
+    {{ $live->title }}
+@endsection
 @section('content')
 
 {{--    トップに画像を出す--}}
@@ -10,8 +12,6 @@
 @else
     <img src="{{ Storage::disk('s3')->url($live->live_image)}}" width="200px" height="200px">
 @endif
-    <h1>{{ $live->title }}</h1>
-
     <table class="table table-striped">
         <tr>
             <th>タイトル</th>

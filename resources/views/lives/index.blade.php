@@ -1,10 +1,12 @@
 @extends('layouts.app')
+@section('headerText')
+    ライブ一覧
+@endsection
 
 @section('content')
 <!-- Start Sample Area -->
 <section class="sample-text-area">
     <div class="container box_1170">
-        <h3 class="text-heading">ライブ一覧</h3>
         <div class="row justify-content-center">
         <!--チェックをつけたライブの削除-->
         {!! Form::model($lives, ['route' => ['lives.destroy'], 'method' => 'delete']) !!}

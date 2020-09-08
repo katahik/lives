@@ -1,9 +1,13 @@
 @extends('layouts.app')
+@section('headerText')
+    行ったライブ
+@endsection
+
 @section('content')
-    <div class="slider-area hero-overly">
-        <div class="single-slider hero-overly  slider-height d-flex align-items-center">
-            <div class="container">
-                <br><br><br><br><br><div class="card">
+{{--    <div class="slider-area hero-overly">--}}
+{{--        <div class="single-slider hero-overly  slider-height d-flex align-items-center">--}}
+{{--            <div class="container">--}}
+            <div class="card">
                 <div class="card-header">
                     ユーザー情報
                 </div>
@@ -23,7 +27,6 @@
                 </div>
                 </div>
             </div>
-            <h2>行ったライブ</h2>
                 <table class="table table-bordered container">
                     <div class="row">
 

@@ -1,9 +1,11 @@
 @extends('layouts.app')
+@section('headerText')
+    今日のライブ
+@endsection
 @section('content')
     <!-- Start Sample Area -->
     <section class="sample-text-area">
         <div class="container box_1170">
-            <h3 class="text-heading">今日のライブ</h3>
             <div class="container">
                 <div class="row">
                     {{--                 レスポンシブデザインでデスクトップ中以上なら横に配置、未満なら上下に配置--}}

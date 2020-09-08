@@ -1,0 +1,23 @@
+.col-form-label{
+    color: white;
+}
+label{
+    color: white;
+}
+h1,
+h2,
+h4{
+    color: white;
+}
+
+p{
+    color: blue;
+}
+
+/*要素の中に潜り込んでいく*/
+.slider-area .single-slider .container table{
+    color: white;
+}
+.slider-area .single-slider .container h2{
+    color: white;
+}

@@ -2915,7 +2915,7 @@ hr {
   background-image: url(../img/hero/hero2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 500px;
+  min-height: 200px;
 }
 @media (max-width: 575px) {
   .hero-area2 {
@@ -2934,16 +2934,16 @@ hr {
   background-image: url(../img/hero/hero2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 500px;
+  min-height: 200px;
 }
 @media (max-width: 575px) {
   .hero-area3 {
-    min-height: 550px;
+    min-height: 200px;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .hero-area3 {
-    min-height: 550px;
+    min-height: 200px;
   }
 }
 .hero-area3 .hero-cap h2 {

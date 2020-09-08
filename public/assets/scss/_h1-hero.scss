@@ -274,7 +274,8 @@
             background-image: url(../img/hero/hero2.jpg);
             background-size: cover;
             background-repeat: no-repeat;
-            min-height: 500px;
+            min-height: 200px;
+            //min-height: 500px;
             @media #{$xs}{
                 min-height: 360px;
             }
@@ -292,12 +293,15 @@
         background-image: url(../img/hero/hero2.jpg);
         background-size: cover;
         background-repeat: no-repeat;
-        min-height: 500px;
+        min-height: 200px;
+        //min-height: 500px;
         @media #{$xs}{
-            min-height: 550px;
+            min-height: 200px;
+            //min-height: 550px;
         }
         @media #{$sm}{
-            min-height: 550px;
+            min-height: 200px;
+            //min-height: 550px;
         }
     .hero-cap{
         & h2{

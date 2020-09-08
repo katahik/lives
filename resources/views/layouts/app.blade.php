@@ -63,7 +63,7 @@
         </div>
     </section>
 </main>
-
+{{--フッター--}}
 @include('commons.footer')
 <!-- Scroll Up -->
 <div id="back-top" >

@@ -35,7 +35,7 @@
                     @foreach ($lives as $live)
                     <tr>
                         <td><input type="checkbox" name="ids[]" value="{{ $live->id }}"></td>
-                        <td>{!! link_to_route('lives.show', $live->id, ['live' => $live->id]) !!}</td>>
+                        <td>{!! link_to_route('lives.show', $live->id, ['live' => $live->id]) !!}</td>
                         <td>{{ $live->title }}</td>
                         <td>{{ $live->date }}</td>
                         <td>{{ $live->venue }}</td>

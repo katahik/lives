@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="slider-area hero-overly">
-    <div class="single-slider hero-overly  slider-height d-flex align-items-center">
-        <div class="container">
+<!--<div class="slider-area hero-overly">-->
+<!--    <div class="single-slider hero-overly  slider-height d-flex align-items-center">-->
+<!--        <div class="container">-->
             <h1></br></br></br>ユーザー一覧</h1>
             {!! Form::model($users, ['route' => ['users.destroy'], 'method' => 'delete']) !!}
             {!! Form::submit('チェックを入れたユーザーを削除する', ['class' => 'btn btn-danger']) !!}
@@ -35,8 +35,8 @@
                 </table>
                 @endif
             {!! Form::close() !!}
-        </div>
-    </div>
-</div>
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 @endsection

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="slider-area hero-overly">
         <div class="single-slider hero-overly  slider-height d-flex align-items-center">

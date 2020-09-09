@@ -26,13 +26,15 @@
                                 {{--            lng用--}}
                                 {!! Form::hidden('lng','lng',['id' => 'lng_id']) !!}
 
-                                {!! Form::submit("この周辺の今日のライブを探す", ['class' => "btn btn-success btn-block"]) !!}
+                                {!! Form::submit("さっそく、この周辺の今日のライブを探す", ['class' => "btn btn-success btn-block"]) !!}
                                 {!! Form::close() !!}
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-12">
+                                <br><br>
+                                <h4>詳細検索</h4>
                                 {!! Form::open(['route' => 'lives.result','method' => 'get']) !!}
 
                                 <div class="form-group row">

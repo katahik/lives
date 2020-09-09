@@ -8,7 +8,19 @@ hero-area2をいじれば画像をいじれる*/
 .hero-area2 {
     min-height: 250px;
 }
-
+/*ライブ一覧のタイトルのaタグ*/
 td a{
+    color: #1c2e4c;
+}
+/*welcomeの詳細検索のラベル*/
+.col-12 .form-group .col-form-label{
+    color: white;
+}
+/*welcomeの詳細検索*/
+.col-12 h4{
+    color: white;
+}
+/*resultの詳細検索のラベル*/
+.box_1170 .col-12 .form-group .col-form-label{
     color: #1c2e4c;
 }

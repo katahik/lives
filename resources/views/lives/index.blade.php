@@ -42,7 +42,14 @@
                 <td>{{ $live->min_price }}</td>
                 <td>{{ $live->max_price }}</td>
                 <td>{{ $live->user_id }}</td>
-                <td>{{ $live->live_image }}</td>
+                <td>
+                    @if($live->live_image === null)
+                    <img src="/storage/defaultLiveImage.jpg" width="100px" height="100px">
+                    @else
+                    <img src="{{ Storage::disk('s3')->url($live->live_image)}}" width="100px" height="100px">
+                    @endif
+                </td>
+<!--                <td>{{ $live->live_image }}</td>-->
                 <td>{{ $live->updated_at }}</td>
             </tr>
             @endforeach

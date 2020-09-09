@@ -11,7 +11,6 @@
         {!! Form::model($lives, ['route' => ['lives.destroy'], 'method' => 'delete']) !!}
         {!! Form::submit('チェックを入れたライブを削除する', ['class' => 'btn btn-danger']) !!}
         {!! link_to_route('lives.create', '新規ライブの作成', [], ['class' => 'btn btn-primary']) !!}
-
         @if (count($lives) > 0)
         <table class="table table-striped">
             <thead>
@@ -34,8 +33,8 @@
             @foreach ($lives as $live)
             <tr>
                 <td><input type="checkbox" name="ids[]" value="{{ $live->id }}"></td>
-                <td>{!! link_to_route('lives.show', $live->id, ['live' => $live->id]) !!}</td>
-                <td>{{ $live->title }}</td>
+                <td>{{ $live->id }}</td>
+                <td>{!! link_to_route('lives.show', $live->title, ['live' => $live->id]) !!}</td>
                 <td>{{ $live->date }}</td>
                 <td>{{ $live->venue }}</td>
                 <td>{{ $live->category }}</td>

@@ -71,6 +71,7 @@ class LivesController extends Controller
         $live->setlist = $request->setlist;
 
         $liveImage = $request->file('liveImage');
+//        dd($request);
 
         //live_imageカラムはnullabelを設定しているため、live_imageがnullだった場合
         //もし,$liveImageに値が入っていたら、下記の処理

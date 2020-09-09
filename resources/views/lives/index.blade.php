@@ -25,7 +25,7 @@
                 <th>Min_fee</th>
                 <th>Max_fee</th>
                 <th>作成したuser_id</th>
-                <th>ライブイメージ</th>
+                <th>イメージ</th>
                 <th>更新日</th>
             </tr>
             </thead>

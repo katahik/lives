@@ -18,7 +18,9 @@ class CreateLivesTable extends Migration
             $table->string('title');
             $table->date('date');
             $table->string('venue');
-            $table->string('category');
+//            該当のカテゴリーがなかった場合のために「指定しない」をデフォルトとした。
+//            指定しないを選んだときにvalueはnullとなるためnullを許容する。
+            $table->string('category')->nullable();
             $table->string('artist');
             $table->unsignedMediumInteger('min_price');
             $table->unsignedMediumInteger('max_price');

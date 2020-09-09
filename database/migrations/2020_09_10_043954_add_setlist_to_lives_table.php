@@ -14,7 +14,8 @@ class AddSetlistToLivesTable extends Migration
     public function up()
     {
         Schema::table('lives', function (Blueprint $table) {
-            $table->string('setlist');
+//            ライブを新規登録したときにはsetlistはわからないため,nullを許容
+            $table->string('setlist')->nullable();
         });
     }
 

@@ -47,7 +47,12 @@
 
             <div class="form-group row">
                 {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('category', old('category'), ['class' => 'col-10 form-control']) !!}
+                {!! Form::select('category',
+                                ['ポップス' => 'ポップス', 'ロック' => 'ロック', 'ヒップホップ' => 'ヒップホップ',
+                                 'レゲエ' => 'レゲエ','ジャズ' => 'ジャズ','パンク' => 'パンク','テクノ' => 'テクノ',
+                                 'ハウス' => 'ハウス','R&B' => 'R&B'
+                                 ] ,
+                                old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'カテゴリーを指定しない']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('artist', 'アーティスト:',['class'=>"col-2 col-form-label"]) !!}

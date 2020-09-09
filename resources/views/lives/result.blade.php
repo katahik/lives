@@ -56,10 +56,15 @@
                         {{--                            {!! Form::text('location', old('location'), ['class' => 'col-10 form-control' ,'placeholder' => '現在地周辺']) !!}--}}
                         {{--                        </div>--}}
 
-                        {{--            デフォルトで全カテゴリーを設定した状態で検索する--}}
+                        {{--デフォルトで全カテゴリーを設定した状態で検索する--}}
                         <div class="form-group row">
                             {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
-                            {!! Form::text('category', old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}
+                            {!! Form::select('category',
+                                ['ポップス' => 'ポップス', 'ロック' => 'ロック', 'ヒップホップ' => 'ヒップホップ',
+                                 'レゲエ' => 'レゲエ','ジャズ' => 'ジャズ','パンク' => 'パンク','テクノ' => 'テクノ',
+                                 'ハウス' => 'ハウス','R&B' => 'R&B',
+                                 ] ,
+                                old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}
                         </div>
 
                         {!! Form::submit('検索',['class' => 'btn btn-primary']) !!}

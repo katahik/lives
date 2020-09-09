@@ -24,3 +24,8 @@ td a{
 .box_1170 .col-12 .form-group .col-form-label{
     color: #1c2e4c;
 }
+/*headerのタイトル*/
+.hero-area2 h3{
+    font-family: "Hiragino Kaku Gothic ProN";
+    color: white;
+}

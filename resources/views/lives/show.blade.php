@@ -42,6 +42,10 @@
             <td>{{ $live->max_price }}</td>
         </tr>
         <tr>
+            <th>セットリスト</th>
+            <td>{{ $live->setlist }}</td>
+        </tr>
+        <tr>
             <th>公式URL</th>
             <td>{{ $live->url }}</td>
         </tr>

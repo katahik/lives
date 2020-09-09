@@ -68,6 +68,7 @@ class LivesController extends Controller
         $live->min_price = $request->min_price;
         $live->max_price = $request->max_price;
         $live->url = $request->url;
+        $live->setlist = $request->setlist;
 
         $liveImage = $request->file('liveImage');
 
@@ -152,6 +153,7 @@ class LivesController extends Controller
         $live->min_price = $request->min_price;
         $live->max_price = $request->max_price;
         $live->url = $request->url;
+        $live->setlist = $request->setlist;
 
         $liveImage = $request->file('liveImage');
 //        dd($liveImage);
@@ -242,14 +244,6 @@ class LivesController extends Controller
 
 //dd($lat,$maxLat,$minLat,$lng,$maxLng,$minLng);
 
-
-//        以前の検索条件
-//        $lives = Live::where('date',$theDay)
-//            //latの値が$minLat<=lat<=$maxLat;
-//            ->whereBetween('lat',[$minLat,$maxLat])
-//            //lngの値が$minLng<=lng<=$maxLng;
-//            ->whereBetween('lng',[$minLng,$maxLng])
-//            ->get();
 
 //        $dateに値があったらその値から検索、なかったら今日の日付から検索
         if(!empty($date)){

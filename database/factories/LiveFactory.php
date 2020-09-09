@@ -30,6 +30,7 @@ $factory->define(Live::class, function (Faker $faker) {
         'lat' => $faker->latitude,//緯度
         'lng' => $faker->longitude,//経度
         'user_id' => $faker->numberBetween(1,2),//1か2の文字列
+        'setlist' => $faker->word,//言葉
         'live_image'=>$faker->imageUrl($width = 640, $height = 480, $category = 'cats', $randomize = true, $word = null),
 
     ];

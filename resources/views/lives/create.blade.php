@@ -67,9 +67,15 @@
             </div>
 
             <div class="form-group row">
+                {!! Form::label('setlist', 'SETLIST:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('setlist', old('setlist'), ['class' => 'col-10 form-control']) !!}
+            </div>
+
+            <div class="form-group row">
                 {!! Form::label('live_image', 'イメージ:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::file('liveImage') !!}
             </div>
+
 
             {!! Form::submit('作成', ['class' => 'btn btn-primary']) !!}
 

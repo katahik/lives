@@ -42,6 +42,8 @@
                 <td>{{ $live->min_price }}</td>
                 <td>{{ $live->max_price }}</td>
                 <td>{{ $live->user_id }}</td>
+<!--                live_imageに何も保存されていなかったらデフォルト画像を表示-->
+<!--                デフォルト画像はstorage/app/publicに保存するが、呼び出すときは/storage /はpublicの意味-->
                 <td>
                     @if($live->live_image === null)
                     <img src="/storage/defaultLiveImage.jpg" width="100px" height="100px">

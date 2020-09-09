@@ -38,11 +38,13 @@
             {{--            緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できるようにする--}}
             <div class="form-group row">
                 {!! Form::label('lat', '緯度:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('lat', old('lat'), ['class' => 'col-10 form-control','id'=>"lat"]) !!}
+                {{--第3引数に'readonly'を入れることで、ユーザーが直接緯度経度をいじれないようにする--}}
+                {!! Form::text('lat', old('lat'), ['class' => 'col-10 form-control','id'=>"lat", 'readonly']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('lng', '経度:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('lng', old('lng'), ['class' => 'col-10 form-control','id'=>"lng"]) !!}
+                {{--第3引数に'readonly'を入れることで、ユーザーが直接緯度経度をいじれないようにする--}}
+                {!! Form::text('lng', old('lng'), ['class' => 'col-10 form-control','id'=>"lng",'readonly']) !!}
             </div>
 
             <div class="form-group row">

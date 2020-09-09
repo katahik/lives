@@ -51,6 +51,8 @@
         {{-- going／ungoingボタン --}}
         @include('user_going.going_button')
     </aside>
+<br>
+
 @if (Auth::check())
     @can('system-only') {{-- システム管理者権限のみに表示される --}}
     {{-- メッセージ編集ページへのリンク --}}

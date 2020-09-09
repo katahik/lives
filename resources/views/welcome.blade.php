@@ -30,6 +30,7 @@
                                 {!! Form::close() !!}
                             </div>
                         </div>
+                        <br>
                         <div class="row">
                             <div class="col-12">
                                 {!! Form::open(['route' => 'lives.result','method' => 'get']) !!}

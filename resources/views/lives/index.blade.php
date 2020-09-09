@@ -5,7 +5,6 @@
 
 @section('content')
 <!-- Start Sample Area -->
-<section class="sample-text-area">
     <div class="container box_1170">
         <div class="row justify-content-center">
         <!--チェックをつけたライブの削除-->
@@ -58,7 +57,6 @@
     </div>
     </div>
     </div>
-</section>
 </div>
 
 <!---->

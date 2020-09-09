@@ -4,11 +4,10 @@
 @endsection
 @section('content')
     <!-- Start Sample Area -->
-    <section class="sample-text-area">
         <div class="container box_1170">
             <div class="container">
                 <div class="row">
-                    {{--                 レスポンシブデザインでデスクトップ中以上なら横に配置、未満なら上下に配置--}}
+                    {{--レスポンシブデザインでデスクトップ中以上なら横に配置、未満なら上下に配置--}}
                     <div class="col-md-8" id="map" style="height:500px"></div>
                     <div class="col-md-4">
                         <table class="table table-striped">
@@ -71,7 +70,6 @@
             </div>
         </div>
         </div>
-    </section>
 @endsection
 
 @section('script')

@@ -72,8 +72,9 @@
                                  ] ,
                                 old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}
                         </div>
-
-                        {!! Form::submit('検索',['class' => 'btn btn-primary']) !!}
+                        {{--setlocation.jsを読み込んで、位置情報取得するまで押せないようにdisabledを付与し、非アクティブにする。--}}
+                        {{--その後、disableはfalseになるようにsetlocation.js内に記述した--}}
+                        {!! Form::submit('検索',['class' => 'btn btn-primary','disabled']) !!}
 
                         {!! Form::close() !!}
                     </div>

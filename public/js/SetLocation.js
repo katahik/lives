@@ -35,3 +35,5 @@ if("geolocation" in navigator){
     alert("ブラウザが位置情報取得に対応していません");
 }
 
+// disableをfalseにし、btnクラスをアクティブにする
+$('.btn').prop('disabled', false)

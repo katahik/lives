@@ -27,9 +27,13 @@ class CreateLive extends FormRequest
     {
         return [
             'title'=>'required',
-            'date'=>'required',
+            //dateのルールにはdate(日付)であること、
+            //特定の日付と同じまたはそれ以降の日付であること(after_or_equal:today)
+            'date'=>'required|date|after_or_equal:today',
             'venue'=>'required',
             'address'=>'required',
+            'lat'=>'required',
+            'lng'=>'required',
             'artist'=>'required',
             'min_fee'=>'required',
             'max_fee'=>'required',
@@ -42,6 +46,8 @@ class CreateLive extends FormRequest
             'date'=>'日にち',
             'venue'=>'会場',
             'address'=>'会場住所',
+            'lat'=>'緯度',
+            'lng'=>'経度',
             'artist'=>'アーティスト',
             'min_fee'=>'チケット最低値',
             'max_fee'=>'チケット最高値',
@@ -50,7 +56,11 @@ class CreateLive extends FormRequest
     public function messages()
     {
         return [
+            // キーでメッセージが表示されるべきルールを指定する。
+            // ドット区切りで左側が項目、右側がルールを意味する。
             'date.after_or_equal' => ':attribute には今日以降の日付を入力してください。',
+            'lat.required'=>'会場住所を入力後に緯度経度変換ボタンで緯度を取得してください',
+            'lng.required'=>'会場住所を入力後に緯度経度変換ボタンで経度を取得してください',
         ];
     }
 }

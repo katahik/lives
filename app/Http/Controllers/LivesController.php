@@ -118,9 +118,12 @@ class LivesController extends Controller
         // idの値でライブを検索して取得
         $live = Live::findOrFail($id);
 
+        //ログイン中のuserのidを変数$userIdへ格納
+        $userId = Auth::id();
 
         return view('lives.show',[
             'live'=>$live,
+            'userId'=>$userId,
         ]);
     }
 

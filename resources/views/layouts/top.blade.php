@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 
     {{--    個人で作ったcss--}}
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>

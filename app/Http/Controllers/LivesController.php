@@ -9,6 +9,7 @@ use App\Live;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Log;
+use Illuminate\Support\Facades\DB;
 
 class LivesController extends Controller
 {
@@ -23,7 +24,8 @@ class LivesController extends Controller
 //        ログイン中のユーザーIDで管理者ID(1)か主催者ID(1以外)か条件わけ
         if(Auth::user()->id === 1){
 //        全てのライブの一覧を取得
-            $lives = Live::all();
+//            $lives = Live::all();
+            $lives = DB::table('lives')->orderBy('updated_at',desc)->paginate(20);
         }else{
 //            Liveの中からユーザーidがログイン中のユーザーidのものを取得
             $lives = Live::where('user_id',Auth::user()->id)

@@ -57,12 +57,15 @@
     </aside>
 <br>
 
+{{--ログイン中のuserのidを変数$userIdへ格納--}}
+{{--viewの中で変数を定義するときは{{}}を使うこと--}}
+{{ $userId = Auth::id() }}
 @if (Auth::check())
     @can('system-only') {{-- システム管理者権限のみに表示される --}}
     {{-- メッセージ編集ページへのリンク --}}
         {!! link_to_route('lives.edit', 'このライブを編集', ['live' => $live->id], ['class' => 'btn btn-light']) !!}
     @endcan
-@elseif(Auth::user()->id === $live->user_id)
+@elseif($userId === $live->user_id)
         {!! link_to_route('lives.edit', 'このライブを編集', ['live' => $live->id], ['class' => 'btn btn-light']) !!}
 @endif
 

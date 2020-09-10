@@ -55,6 +55,7 @@
                         {{--                            {!! Form::label('location', '場所:',['class'=>"col-2 col-form-label"]) !!}--}}
                         {{--                            {!! Form::text('location', old('location'), ['class' => 'col-10 form-control' ,'placeholder' => '現在地周辺']) !!}--}}
                         {{--                        </div>--}}
+
                         {{--隠しフォームでlivescontrollerに位置情報を渡す--}}
                         {{--lat用--}}
                         {!! Form::hidden('lat','lat',['class'=>'lat_input']) !!}

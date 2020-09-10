@@ -55,6 +55,11 @@
                         {{--                            {!! Form::label('location', '場所:',['class'=>"col-2 col-form-label"]) !!}--}}
                         {{--                            {!! Form::text('location', old('location'), ['class' => 'col-10 form-control' ,'placeholder' => '現在地周辺']) !!}--}}
                         {{--                        </div>--}}
+                        {{--隠しフォームでlivescontrollerに位置情報を渡す--}}
+                        {{--lat用--}}
+                        {!! Form::hidden('lat','lat',['class'=>'lat_input']) !!}
+                        {{--lng用--}}
+                        {!! Form::hidden('lng','lng',['class'=>'lng_input']) !!}
 
                         {{--デフォルトで全カテゴリーを設定した状態で検索する--}}
                         <div class="form-group row">
@@ -78,8 +83,9 @@
 @endsection
 
 @section('script')
+        <script src="{{ asset('/js/SetLocation.js') }}"></script>
     <script>
-        // result.jsで使用する定数livesに、controllerで定義した$livesの各要素を配列にして、json形式にし、result.jsに渡す
+    // result.jsで使用する定数livesに、controllerで定義した$livesの各要素を配列にして、json形式にし、result.jsに渡す
         const lives = @json($lives->toArray());
 
         // result.jsで使用する定数latに、controllerで定義した$latをいれて、result.jsに渡す

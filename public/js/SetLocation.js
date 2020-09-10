@@ -7,9 +7,11 @@ function setLocation(pos){
     console.log(lng);
 
     // welcomeの中からlat_idのidを見つけて、そのvalueに、定数latを代入
-    document.getElementById("lat_id").value = lat;
-    // welcomeの中からlng_idのidを見つけて、そのvalueに、定数lngを代入
-    document.getElementById("lng_id").value = lng;
+    $(".lat_input").val = lat;
+    // document.getElementById("lat_id").value = lat;
+    // // welcomeの中からlng_idのidを見つけて、そのvalueに、定数lngを代入
+    $(".lng_input").val = lng;
+    // document.getElementById("lng_id").value = lng;
 
 }
 

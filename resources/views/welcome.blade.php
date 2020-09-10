@@ -22,9 +22,9 @@
                                 {!! Form::open(['route' => 'lives.result','method' => 'get']) !!}
                                 {{--            隠しフォームでlivescontrollerに位置情報を渡す--}}
                                 {{--            lat用--}}
-                                {!! Form::hidden('lat','lat',['id' => 'lat_id']) !!}
+                                {!! Form::hidden('lat','lat',['class'=>'lat_input']) !!}
                                 {{--            lng用--}}
-                                {!! Form::hidden('lng','lng',['id' => 'lng_id']) !!}
+                                {!! Form::hidden('lng','lng',['class'=>'lng_input']) !!}
 
                                 {!! Form::submit("さっそく、この周辺の今日のライブを探す", ['class' => "btn btn-success btn-block"]) !!}
                                 {!! Form::close() !!}
@@ -55,9 +55,9 @@
                                 {{--             </div>--}}
                                 {{--隠しフォームでlivescontrollerに位置情報を渡す--}}
                                 {{--lat用--}}
-                                {!! Form::hidden('lat','lat',['id' => 'lat_id']) !!}
+                                {!! Form::hidden('lat','lat',['class'=>'lat_input']) !!}
                                 {{--lng用--}}
-                                {!! Form::hidden('lng','lng',['id' => 'lng_id']) !!}
+                                {!! Form::hidden('lng','lng',['class'=>'lng_input']) !!}
 
                                 {{--デフォルトで全カテゴリーを設定した状態で検索する--}}
                                 <div class="form-group row">

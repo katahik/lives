@@ -59,6 +59,7 @@
         </table>
         @endif
         {!! Form::close() !!}
+            {{ $lives->links() }}
     </div>
     </div>
     </div>

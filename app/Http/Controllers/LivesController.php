@@ -21,15 +21,15 @@ class LivesController extends Controller
 //    /lives で一覧表示させる
     public function index()
     {
-//        ログイン中のユーザーIDで管理者ID(1)か主催者ID(1以外)か条件わけ
+            //ログイン中のユーザーIDで管理者ID(1)か主催者ID(1以外)か条件わけ
         if(Auth::user()->id === 1){
-//        全てのライブの一覧を取得
-//            $lives = Live::all();
-            $lives = DB::table('lives')->orderBy('updated_at',desc)->paginate(20);
+            //全てのライブの一覧を取得
+            //更新が新しい順に並べ替え,20項目でページネーション
+            $lives = DB::table('lives')->orderBy('updated_at','desc')->paginate(20);
         }else{
-//            Liveの中からユーザーidがログイン中のユーザーidのものを取得
-            $lives = Live::where('user_id',Auth::user()->id)
-            ->get();
+            //Liveの中からユーザーidがログイン中のユーザーidのものを取得
+            //更新が新しい順に並べ替え,20項目でページネーション
+            $lives = DB::table('lives')->where('user_id',Auth::user()->id)->orderBy('updated_at','desc')->paginate(20);
         }
 //        ライブ一覧で表示
         return view('lives.index',[

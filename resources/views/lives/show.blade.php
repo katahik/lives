@@ -35,11 +35,11 @@
         </tr>
         <tr>
             <th>チケット最低値</th>
-            <td>{{ $live->min_price }}</td>
+            <td>{{ $live->min_fee }}</td>
         </tr>
         <tr>
             <th>チケット最高値</th>
-            <td>{{ $live->max_price }}</td>
+            <td>{{ $live->max_fee }}</td>
         </tr>
         <tr>
             <th>セットリスト</th>

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Log;
 use Illuminate\Support\Facades\DB;
+//CreateLiveで設定したバリデーションをよみこむ
+use App\Http\Requests\CreateLive;
 
 class LivesController extends Controller
 {
@@ -57,7 +59,9 @@ class LivesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    //CreateLiveクラスの情報が$requestに詰まっている
+    //CreateLiveクラスはバリデーションを定義している
+    public function store(CreateLive $request)
     {
 //      ライブクラスのインスタンスを作成
         $live = new Live;
@@ -67,8 +71,8 @@ class LivesController extends Controller
         $live->venue = $request->venue;
         $live->category = $request->category;
         $live->artist = $request->artist;
-        $live->min_price = $request->min_price;
-        $live->max_price = $request->max_price;
+        $live->min_fee = $request->min_fee;
+        $live->max_fee = $request->max_fee;
         $live->url = $request->url;
         $live->setlist = $request->setlist;
 
@@ -153,8 +157,8 @@ class LivesController extends Controller
         $live->venue = $request->venue;
         $live->category = $request->category;
         $live->artist = $request->artist;
-        $live->min_price = $request->min_price;
-        $live->max_price = $request->max_price;
+        $live->min_fee = $request->min_fee;
+        $live->max_fee = $request->max_fee;
         $live->url = $request->url;
         $live->setlist = $request->setlist;
 

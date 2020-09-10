@@ -5,6 +5,15 @@
 
 @section('content')
 
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <div class="row">
         <div class="col-12">
@@ -61,12 +70,12 @@
                 {!! Form::text('artist', old('artist'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
-                {!! Form::label('min_price', 'チケット最低値:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('min_price', old('min_price'), ['class' => 'col-10 form-control']) !!}
+                {!! Form::label('min_fee', 'チケット最低値:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('min_fee', old('min_fee'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
-                {!! Form::label('max_price', 'チケット最高値:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('max_price', old('max_price'), ['class' => 'col-10 form-control']) !!}
+                {!! Form::label('max_fee', 'チケット最高値:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('max_fee', old('max_fee'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('url', 'URL:',['class'=>"col-2 col-form-label"]) !!}

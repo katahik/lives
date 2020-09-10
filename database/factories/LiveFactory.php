@@ -24,8 +24,8 @@ $factory->define(Live::class, function (Faker $faker) {
         'venue' => $faker->locale,//場所
         'category' => $faker->word,//言葉
         'artist' => $faker->name,//名前
-        'min_price' => $faker->numberBetween(100,1000),//100から1000のランダムな数字
-        'max_price' => $faker->numberBetween(1001,10000),//1001から10000のランダムな数字
+        'min_fee' => $faker->numberBetween(100,1000),//100から1000のランダムな数字
+        'max_fee' => $faker->numberBetween(1001,10000),//1001から10000のランダムな数字
         'url' => $faker->url,//url
         'lat' => $faker->latitude,//緯度
         'lng' => $faker->longitude,//経度

@@ -22,8 +22,8 @@ class CreateLivesTable extends Migration
 //            指定しないを選んだときにvalueはnullとなるためnullを許容する。
             $table->string('category')->nullable();
             $table->string('artist');
-            $table->unsignedMediumInteger('min_price');
-            $table->unsignedMediumInteger('max_price');
+            $table->unsignedMediumInteger('min_fee');
+            $table->unsignedMediumInteger('max_fee');
             $table->string('url')->nullable();
 //            緯度経度は概算距離11cm単位で算定するため、以下の桁数をとる
             $table->double('lat', 8, 6);

@@ -39,8 +39,8 @@
                 <td>{{ $live->venue }}</td>
                 <td>{{ $live->category }}</td>
                 <td>{{ $live->artist }}</td>
-                <td>{{ $live->min_price }}</td>
-                <td>{{ $live->max_price }}</td>
+                <td>{{ $live->min_fee }}</td>
+                <td>{{ $live->max_fee }}</td>
                 <td>{{ $live->user_id }}</td>
 <!--                live_imageに何も保存されていなかったらデフォルト画像を表示-->
 <!--                デフォルト画像はstorage/app/publicに保存するが、呼び出すときは/storage /はpublicの意味-->
@@ -107,8 +107,8 @@
 <!--                        <td>{{ $live->venue }}</td>-->
 <!--                        <td>{{ $live->category }}</td>-->
 <!--                        <td>{{ $live->artist }}</td>-->
-<!--                        <td>{{ $live->min_price }}</td>-->
-<!--                        <td>{{ $live->max_price }}</td>-->
+<!--                        <td>{{ $live->min_fee }}</td>-->
+<!--                        <td>{{ $live->max_fee }}</td>-->
 <!--                        <td>{{ $live->url }}</td>-->
 <!--                        <td>{{ $live->user_id }}</td>-->
 <!--                        <td>{{ $live->live_image }}</td>-->

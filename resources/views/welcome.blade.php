@@ -83,7 +83,6 @@
     @endsection
 
 @section('script')
-    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
     <script src="{{ asset('/js/SetLocation.js') }}"></script>
 @endsection
 

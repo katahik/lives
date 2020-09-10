@@ -6,12 +6,10 @@ function setLocation(pos){
     console.log(lat);
     console.log(lng);
 
-    // welcomeの中からlat_idのidを見つけて、そのvalueに、定数latを代入
-    $(".lat_input").val = lat;
-    // document.getElementById("lat_id").value = lat;
-    // // welcomeの中からlng_idのidを見つけて、そのvalueに、定数lngを代入
-    $(".lng_input").val = lng;
-    // document.getElementById("lng_id").value = lng;
+    // welcomeの中からlat_inputのclassを見つけて、そのvalueに、定数latを代入
+    $(".lat_input").val(lat);
+    //welcomeの中からlng_inputのclassを見つけて、そのvalueに、定数lngを代入
+    $(".lng_input").val(lng);
 
 }
 

@@ -18,11 +18,13 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(Live::class, function (Faker $faker) {
+//    直接randomElementに書き込んだらエラーがでたため、変数に入れる
+$randomCategory=array("ポップス","ロック","ヒップホップ","レゲエ","ジャズ","パンク","テクノ","ハウス","R&B","");
     return [
         'title' => $faker->word,//言葉
         'date' => $faker->date,//日にち
         'venue' => $faker->locale,//場所
-        'category' => $faker->word,//言葉
+        'category' => $faker->randomElement($randomCategory),//カテゴリー候補からランダムに選択
         'artist' => $faker->name,//名前
         'min_fee' => $faker->numberBetween(0,1000),//0から1000のランダムな数字
         'max_fee' => $faker->numberBetween(1001,10000),//1001から10000のランダムな数字

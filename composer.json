@@ -16,7 +16,7 @@
         "laravelcollective/html": "^6.0",
         "league/flysystem-aws-s3-v3": "^1.0"
     },
-    "require": {
+    "require-dev": {
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.9.1",
         "mockery/mockery": "^1.0",

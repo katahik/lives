@@ -22,7 +22,7 @@ $factory->define(Live::class, function (Faker $faker) {
 $randomCategory=array("ポップス","ロック","ヒップホップ","レゲエ","ジャズ","パンク","テクノ","ハウス","R&B","");
     return [
         'title' => $faker->word,//言葉
-        'date' => $faker->date,//日にち
+        'date' => $faker->date(),//日にち
         'venue' => $faker->locale,//場所
         'category' => $faker->randomElement($randomCategory),//カテゴリー候補からランダムに選択
         'artist' => $faker->name,//名前
@@ -33,7 +33,5 @@ $randomCategory=array("ポップス","ロック","ヒップホップ","レゲエ
         'lng' => $faker->longitude,//経度
         'user_id' => $faker->numberBetween(1,2,3),//1か2か3の数値
         'setlist' => $faker->word,//言葉
-        'live_image'=>$faker->imageUrl($width = 640, $height = 480, $category = 'cats', $randomize = true, $word = null),
-
     ];
 });

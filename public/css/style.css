@@ -29,7 +29,8 @@ td a{
     font-family: "Hiragino Kaku Gothic ProN";
     color: white;
 }
-.slider-area .single-slider .container .text-center h4{
+/*それぞれのフォントを白へ修正*/
+.slider-area .single-slider .container .text-center h5{
     color: white;
 }
 .slider-area .single-slider .container .text-center h1{
@@ -40,4 +41,12 @@ td a{
 }
 .slider-area .single-slider .container .row .col-sm-6 .mt-2{
     color: white;
+}
+/*welcomeとresultのページのボタンを中央そろえ*/
+/*btnのクラスにtext-align:center;とするのでなく,btnの親クラスにする*/
+.container .container .row .col-12 .btn-wrapper{
+    text-align:center;
+}
+.slider-area .single-slider .container .row .col-xl-8 .row .col-12 .btn-wrapper{
+    text-align:center;
 }

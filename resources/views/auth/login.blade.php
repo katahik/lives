@@ -5,8 +5,8 @@
         <div class="single-slider hero-overly  slider-height d-flex align-items-center">
             <div class="container">
                 <div class="text-center">
-                    <h4>ログインすると、「行ったライブ」機能で、行ったライブを簡単に思い出すことができます。</h4>
-                    <br>
+                    <br><br><br><br><br>
+                    <h5>ログインすると、「行ったライブ」機能で、行ったライブを簡単に思い出すことができます。</h5>
                     <h1>Log in</h1>
                 </div>
 

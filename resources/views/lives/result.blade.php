@@ -41,13 +41,13 @@
                         {!! Form::open(['route' => 'lives.result','method' => 'get']) !!}
 
                         <div class="form-group row">
-                            {!! Form::label('freeword', 'フリーワード:',['class'=>"col-2 col-form-label"]) !!}
-                            {!! Form::text('freeword', old('title'), ['class' => 'col-10 form-control','placeholder' => 'フリーワード']) !!}
+                            {!! Form::label('freeword', 'フリーワード:',['class'=>"col-md-2 col-form-label"]) !!}
+                            {!! Form::text('freeword', old('title'), ['class' => 'col-md-10 form-control','placeholder' => 'フリーワード']) !!}
                         </div>
 
                         <div class="form-group row">
-                            {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label date"]) !!}
-                            {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-10 form-control']) !!}
+                            {!! Form::label('date', '日にち:',['class'=>"col-md-2 col-form-label date"]) !!}
+                            {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-md-10 form-control']) !!}
                         </div>
                         {{--一旦場所は考えない--}}
                         {{--            デフォルトで現在地を選択した状態で検索する--}}
@@ -64,17 +64,19 @@
 
                         {{--デフォルトで全カテゴリーを設定した状態で検索する--}}
                         <div class="form-group row">
-                            {!! Form::label('category', 'カテゴリー:',['class'=>"col-2 col-form-label"]) !!}
+                            {!! Form::label('category', 'カテゴリー:',['class'=>"col-md-2 col-form-label"]) !!}
                             {!! Form::select('category',
                                 ['ポップス' => 'ポップス', 'ロック' => 'ロック', 'ヒップホップ' => 'ヒップホップ',
                                  'レゲエ' => 'レゲエ','ジャズ' => 'ジャズ','パンク' => 'パンク','テクノ' => 'テクノ',
                                  'ハウス' => 'ハウス','R&B' => 'R&B',
                                  ] ,
-                                old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}
+                                old('category'), ['class' => 'col-md-10 form-control' ,'placeholder' => 'すべてのカテゴリー']) !!}
                         </div>
                         {{--setlocation.jsを読み込んで、位置情報取得するまで押せないようにdisabledを付与し、非アクティブにする。--}}
                         {{--その後、disableはfalseになるようにsetlocation.js内に記述した--}}
-                        {!! Form::submit('検索',['class' => 'btn btn-primary','disabled']) !!}
+                        <div class="btn-wrapper">
+                            {!! Form::submit('検索',['class' => 'btn btn-primary','disabled']) !!}
+                        </div>
 
                         {!! Form::close() !!}
                     </div>

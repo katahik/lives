@@ -227,27 +227,14 @@ class LivesController extends Controller
         Log::debug('$category="' . $category . '"');
 
         // 文字列型をfloatで浮動小数点型へ変更
-        $lat1 = (float)$lat;
-        $lng1 = (float)$lng;
+        $floatLat = (float)$lat;
+        $floatLng = (float)$lng;
 
-//        dd($lat1,$lat1+config('const.latPerKm'),config('const.latPerKm'));
-
-        //config/const.phpから持ってこようとしたものの、おそらく型変換？の関係で計算できず、断念
-        $maxLat=$lat1+(config('const.latPerKm')*5);
-        $minLat=$lat1-(config('const.latPerKm')*5);
-        $maxLng=$lng1+(config('const.lngPerKm')*5);
-        $minLng=$lng1-(config('const.lngPerKm')*5);
-
-dd($lat1,$maxLat,$minLat,$lng1,$maxLng,$minLng);
-
-        // 緯度/km = 0.0090133729745762
-        // 半径（正方形）5km  0.0090133729745762 * 5 = 0.04506686487
-        $maxLat = $lat1 + 0.04506686487;
-        $minLat = $lat1 - 0.04506686487;
-        // 経度/km = 0.010966404715491394
-        // 半径（正方形）5km  0.010966404715491394 * 5 = 0.05483202357
-        $maxLng = $lng1 + 0.05483202357;
-        $minLng = $lng1 - 0.05483202357;
+        // 半径(正方形)5kmあたりの緯度経度を計算（config/const.phpから5kmあたりの緯度経度の値をもってくる）
+        $maxLat=$floatLat+(config('const.latPer5Km'));
+        $minLat=$floatLat-(config('const.latPer5Km'));
+        $maxLng=$floatLng+(config('const.lngPer5Km'));
+        $minLng=$floatLng-(config('const.lngPer5Km'));
 
         // $dateに値があったらその値から検索、なかったら今日の日付から検索
         if (!empty($date)) {

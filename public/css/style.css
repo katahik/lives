@@ -62,3 +62,8 @@ td a {
 .slider-area .single-slider .container .row .col-xl-8 .row .col-12 .btn-wrapper {
     text-align: center;
 }
+
+/*footerの不要な線を削除*/
+.footer-area .container .footer-bottom {
+    border: none;
+}

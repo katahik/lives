@@ -230,22 +230,24 @@ class LivesController extends Controller
         $lat1 = (float)$lat;
         $lng1 = (float)$lng;
 
+//        dd($lat1,$lat1+config('const.latPerKm'),config('const.latPerKm'));
+
+        //config/const.phpから持ってこようとしたものの、おそらく型変換？の関係で計算できず、断念
+        $maxLat=$lat1+(config('const.latPerKm')*5);
+        $minLat=$lat1-(config('const.latPerKm')*5);
+        $maxLng=$lng1+(config('const.lngPerKm')*5);
+        $minLng=$lng1-(config('const.lngPerKm')*5);
+
+dd($lat1,$maxLat,$minLat,$lng1,$maxLng,$minLng);
+
         // 緯度/km = 0.0090133729745762
-        // 半径（正方形だが）5km  0.0090133729745762 * 5 = 0.04506686487
+        // 半径（正方形）5km  0.0090133729745762 * 5 = 0.04506686487
         $maxLat = $lat1 + 0.04506686487;
         $minLat = $lat1 - 0.04506686487;
         // 経度/km = 0.010966404715491394
-        // 半径（正方形だが）5km  0.010966404715491394 * 5 = 0.05483202357
+        // 半径（正方形）5km  0.010966404715491394 * 5 = 0.05483202357
         $maxLng = $lng1 + 0.05483202357;
         $minLng = $lng1 - 0.05483202357;
-
-        //config/const.phpから持ってこようとしたものの、おそらく型変換？の関係で計算できず、断念
-//        $maxLat=$lat+(config('const.latPerKm')*5);
-//        $minLat=$lat-(config('const.latPerKm')*5);
-//        $maxLng=$lng+(config('const.lngPerKm')*5);
-//        $minLng=$lng-(config('const.lngPerKm')*5);
-
-//dd($lat,$maxLat,$minLat,$lng,$maxLng,$minLng);
 
         // $dateに値があったらその値から検索、なかったら今日の日付から検索
         if (!empty($date)) {

@@ -29,9 +29,9 @@
 
                         {{-- ユーザ登録ページへのリンク --}}
                         <p class="mt-2">New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>
-                        <p class="mt-2">管理者  Email : admin@gmail.com  Password : 00000000</p>
-                        <p class="mt-2">主催者  Email : host1@gmail.com  Password : 00000000</p>
-                        <p class="mt-2">一般ユーザー  Email : kotakatahira@gmail.com  Password : 00000000</p>
+                        <p class="mt-2">管理者 Email : admin@gmail.com Password : 00000000</p>
+                        <p class="mt-2">主催者 Email : host1@gmail.com Password : 00000000</p>
+                        <p class="mt-2">一般ユーザー Email : kotakatahira@gmail.com Password : 00000000</p>
                     </div>
                 </div>
             </div>

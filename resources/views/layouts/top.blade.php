@@ -6,7 +6,6 @@
     <title>Lives</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{--    <link rel="manifest" href="site.webmanifest">--}}
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
     <!-- CSS here -->
@@ -22,7 +21,7 @@
     <link rel="stylesheet" href="/assets/css/nice-select.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 
-    {{--    個人で作ったcss--}}
+    {{--個人で作ったcss--}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
@@ -49,7 +48,7 @@
 @include('commons.footer')
 
 <!-- Scroll Up -->
-<div id="back-top" >
+<div id="back-top">
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
 

@@ -1,36 +1,35 @@
-
 function getIdoKeido() {
 
-    //入力した住所を取得します。
+    // 入力した住所を取得します。
     var addressInput = document.getElementById('addressInput').value;
     console.log(addressInput);
 
-    //Google Maps APIのジオコーダを使います。
+    // Google Maps APIのジオコーダを使います。
     var geocoder = new google.maps.Geocoder();
 
-    //ジオコーダのgeocodeを実行します。
-    //第１引数のリクエストパラメータにaddressプロパティを設定します。
-    //第２引数はコールバック関数です。取得結果を処理します。
+    // ジオコーダのgeocodeを実行します。
+    // 第１引数のリクエストパラメータにaddressプロパティを設定します。
+    // 第２引数はコールバック関数です。取得結果を処理します。
     geocoder.geocode(
         {
             address: addressInput
         },
-        function(results, status) {
+        function (results, status) {
 
             console.log(results, status)
 
             var idokeido = "";
 
             if (status == google.maps.GeocoderStatus.OK) {
-                //取得が成功した場合
+                // 取得が成功した場合
 
-                //結果をループして取得します。
+                // 結果をループして取得します。
                 for (var i in results) {
                     if (results[i].geometry) {
 
-                        //緯度を取得します。
+                        // 緯度を取得します。
                         var lat = results[i].geometry.location.lat();
-                        //経度を取得します。
+                        // 経度を取得します。
                         var lng = results[i].geometry.location.lng();
 
                         // console.log(lat);
@@ -64,6 +63,5 @@ function getIdoKeido() {
 
         });
 }
-$('#searchGeo').on('click',getIdoKeido);
 
-//document.getElementById('searchGeo').on('click',getIdoKeido);
+$('#searchGeo').on('click', getIdoKeido);

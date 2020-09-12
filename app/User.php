@@ -36,19 +36,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-//  このuserに入力されたlives
+
+    // このuserに入力されたlives
     public function lives()
     {
         return $this->hasMany(Live::class);
     }
 
 
-//    このユーザーが行ったライブ
+    // このユーザーが行ったライブ
     public function wentLive()
     {
         return $this->belongsToMany(Live::class, 'going', 'user_id', 'live_id')->withTimestamps();
     }
-//    $liveIdで指定されたライブへgoingする
+
+    // $liveIdで指定されたライブへgoingする
     public function going($liveId)
     {
         // すでにgoingしているかの確認
@@ -63,7 +65,8 @@ class User extends Authenticatable
             return true;
         }
     }
-//    $liveIdで指定されたライブへgoingを外す
+
+    // $liveIdで指定されたライブへgoingを外す
     public function ungoing($liveId)
     {
         // すでにgoingしているかの確認
@@ -78,7 +81,8 @@ class User extends Authenticatable
             return false;
         }
     }
-//    指定された$liveIdがにすでにgoingしているかどうかを判断して、goingしていればtrueを返す
+
+    // 指定された$liveIdがにすでにgoingしているかどうかを判断して、goingしていればtrueを返す
     public function is_going($liveId)
     {
         // going中liveの中に $liveIdのものが存在するか

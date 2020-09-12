@@ -23,7 +23,7 @@
                                             <li class="nav-item">{!!link_to_route('users.index', 'ユーザー一覧', [],['class' => 'nav-link']) !!}</li>
 
                                             @endcan
-                                            @can('admin-higher')　{{-- 管理者権限以上に表示される --}}
+                                            @can('admin-higher') {{-- 管理者権限以上に表示される --}}
                                             <li class="nav-item">{!!link_to_route('lives.index', 'ライブ一覧', [],['class' => 'nav-link']) !!}</li>
                                             @endcan
                                             @can('user-higher') {{-- 一般権限以上に表示される --}}

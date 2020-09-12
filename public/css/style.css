@@ -1,52 +1,64 @@
 
-td{
+td {
     color: #1c2e4c;
 }
+
 /*publc/assets/scss/_h1-hero.scss内で,hero-area2クラスでbackgroud-imageを指定しているため
 hero-area2をいじれば画像をいじれる*/
 /*min-heightは,_h1-hero.scssでこのようにしているため、min-hieghtを指定する*/
 .hero-area2 {
     min-height: 250px;
 }
+
 /*ライブ一覧のタイトルのaタグ*/
-td a{
+td a {
     color: #1c2e4c;
 }
+
 /*welcomeの詳細検索のラベル*/
-.col-12 .form-group .col-form-label{
+.col-12 .form-group .col-form-label {
     color: white;
 }
+
 /*welcomeの詳細検索*/
-.col-12 h4{
+.col-12 h4 {
     color: white;
 }
+
 /*resultの詳細検索のラベル*/
-.box_1170 .col-12 .form-group .col-form-label{
+.box_1170 .col-12 .form-group .col-form-label {
     color: #1c2e4c;
 }
+
 /*headerのタイトル*/
-.hero-area2 h3{
+.hero-area2 h3 {
     font-family: "Hiragino Kaku Gothic ProN";
     color: white;
 }
+
 /*それぞれのフォントを白へ修正*/
-.slider-area .single-slider .container .text-center h5{
+.slider-area .single-slider .container .text-center h5 {
     color: white;
 }
-.slider-area .single-slider .container .text-center h1{
+
+.slider-area .single-slider .container .text-center h1 {
     color: white;
 }
-.slider-area .single-slider .container .row .col-sm-6 .form-group{
+
+.slider-area .single-slider .container .row .col-sm-6 .form-group {
     color: white;
 }
-.slider-area .single-slider .container .row .col-sm-6 .mt-2{
+
+.slider-area .single-slider .container .row .col-sm-6 .mt-2 {
     color: white;
 }
+
 /*welcomeとresultのページのボタンを中央そろえ*/
 /*btnのクラスにtext-align:center;とするのでなく,btnの親クラスにする*/
-.container .container .row .col-12 .btn-wrapper{
-    text-align:center;
+.container .container .row .col-12 .btn-wrapper {
+    text-align: center;
 }
-.slider-area .single-slider .container .row .col-xl-8 .row .col-12 .btn-wrapper{
-    text-align:center;
+
+.slider-area .single-slider .container .row .col-xl-8 .row .col-12 .btn-wrapper {
+    text-align: center;
 }

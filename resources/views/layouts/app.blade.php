@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/assets/css/slick.css">
     <link rel="stylesheet" href="/assets/css/nice-select.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-    {{--    個人で作ったcss--}}
+    {{--個人で作ったcss--}}
     {{--laravelにてcssを適用させるには,asset()で引数はpubliceからのパス--}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
@@ -48,7 +48,7 @@
             <div class="col-xl-12">
                 <div class="hero-cap text-center pt-50">
                     <h3>
-                    @yield('headerText')
+                        @yield('headerText')
                     </h3>
                 </div>
             </div>
@@ -56,7 +56,6 @@
     </div>
 </div>
 <!--Hero End -->
-
 <main>
     <section class="sample-text-area">
         <div class="container box_1170">
@@ -67,7 +66,7 @@
 {{--フッター--}}
 @include('commons.footer')
 <!-- Scroll Up -->
-<div id="back-top" >
+<div id="back-top">
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
 

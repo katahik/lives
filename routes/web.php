@@ -33,19 +33,17 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 //結果の表示
-Route::get('result','LivesController@result')->name('lives.result');
+Route::get('result', 'LivesController@result')->name('lives.result');
 
 
 //ログイン中の一般ユーザーが見れる群
 
 Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
-//  このグループ内のURLの最初に /users/{id}/を付与
+//このグループ内のURLの最初に /users/{id}/を付与
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('going', 'GoingController@store')->name('going');
         Route::delete('ungoing', 'GoingController@destroy')->name('ungoing');
         Route::get('wentLive', 'UsersController@wentLive')->name('wentLive');
-//        現在は使っていないroute
-        Route::get('livers', 'UsersController@followers')->name('livers');
     });
     // 行ったライブ
     Route::get('users/{user}', 'UsersController@show')->name('users.show');
@@ -57,7 +55,7 @@ Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
 Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
 //    自分が作成したライブのみライブ一覧で出てくる
 //    Route::resource('lives', 'LivesController');
-    Route::resource('lives', 'LivesController',['only' => ['index','store','create']]);
+    Route::resource('lives', 'LivesController', ['only' => ['index', 'store', 'create']]);
     Route::delete('lives', 'LivesController@destroy')->name('lives.destroy');
     Route::put('lives/{live}', 'LivesController@update')->name('lives.update');
     Route::get('lives/{live}/edit', 'LivesController@edit')->name('lives.edit');

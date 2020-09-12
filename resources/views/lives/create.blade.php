@@ -17,9 +17,9 @@
 
     <div class="row">
         <div class="col-12">
-{{--   'files' => trueを記入することでフォームにenctype="multipart/form-data"属性が付与--}}
+            {{-- 'files' => trueを記入することでフォームにenctype="multipart/form-data"属性が付与--}}
             {!! Form::model($live, ['route' => 'lives.store','files' => true]) !!}
-{{--            CSRF(クロスサイトリクエストフォージェリ)トークンを生成--}}
+            {{-- CSRF(クロスサイトリクエストフォージェリ)トークンを生成--}}
             {{Form::token()}}
 
             <div class="form-group row">
@@ -28,7 +28,6 @@
             </div>
 
             <div class="form-group row">
-                {{--                カレンダーを表示させること→実装--}}
                 {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label date"]) !!}
                 {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-10 form-control']) !!}
             </div>
@@ -38,13 +37,12 @@
                 {!! Form::text('venue', old('venue'), ['class' => 'col-10 form-control']) !!}
             </div>
 
-{{--            緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できるようにする--}}
+            {{-- 緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できる--}}
             <div class="form-group row">
                 {!! Form::label('address', '会場住所:',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('address',  old('address'), ['class' => 'col-10 form-control','id'=>'addressInput']) !!}
             </div>
             <div id="searchGeo" class="btn btn-primary">緯度経度変換</div>
-            {{--            緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できるようにする--}}
             <div class="form-group row">
                 {!! Form::label('lat', '緯度:',['class'=>"col-2 col-form-label"]) !!}
                 {{--第3引数に'readonly'を入れることで、ユーザーが直接緯度経度をいじれないようにする--}}
@@ -102,6 +100,8 @@
 @endsection
 
 @section('script')
-    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap" async defer></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvw2VOhcVODwrVjPHQ5Q0kGxWKICqx2QA&callback=initMap"
+        async defer></script>
     <script src="{{ asset('/js/getLatLng.js') }}"></script>
 @endsection

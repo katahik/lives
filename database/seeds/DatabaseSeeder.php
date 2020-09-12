@@ -11,13 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //UserFactoryでランダムで作るものとは別に個別で作成したい場合はここで記述
+        // UserFactoryでランダムで作るものとは別に個別で作成したい場合はここで記述
         App\User::create([
             'name' => '管理者',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('00000000'), // この場合、「00000000」でログインできる
             'remember_token' => str_random(10),
-            'role'=>'99'
+            'role' => '99'
         ]);
 
         App\User::create([
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'host1@gmail.com',
             'password' => Hash::make('00000000'), // この場合、「00000000」でログインできる
             'remember_token' => str_random(10),
-            'role'=>10,
+            'role' => 10,
         ]);
 
         App\User::create([
@@ -33,17 +33,17 @@ class DatabaseSeeder extends Seeder
             'email' => 'host2@gmail.com',
             'password' => Hash::make('00000000'), // この場合、「00000000」でログインできる
             'remember_token' => str_random(10),
-            'role'=>11,
+            'role' => 11,
         ]);
         App\User::create([
             'name' => '片平 康太',
             'email' => 'kotakatahira@gmail.com',
             'password' => Hash::make('00000000'), // この場合、「00000000」でログインできる
             'remember_token' => str_random(10),
-            'role'=>1,
+            'role' => 1,
         ]);
-        //ファクトリーで設定したものを作るUsers(Lives)TableSeederを呼び出してシーダーを作成
-         $this->call(UsersTableSeeder::class);
-         $this->call(LivesTableSeeder::class);
+        // ファクトリーで設定したものを作るUsers(Lives)TableSeederを呼び出してシーダーを作成
+        $this->call(UsersTableSeeder::class);
+        $this->call(LivesTableSeeder::class);
     }
 }

@@ -43,11 +43,10 @@
                 <td>{{ $live->max_fee }}</td>
                 <td>{{ $live->user_id }}</td>
                 <!--live_imageに何も保存されていなかったらデフォルト画像を表示-->
-                <!--デフォルト画像はstorage/app/publicに保存するが、呼び出すときは/storage /はpublicの意味-->
+                <!--デフォルト画像はpublic/imagesに保存するが、呼び出すときは/images /はpublicの意味-->
                 <td>
                     @if($live->live_image === null)
-                    <img src="/storage/defaultLiveImage.jpg" width="100px" height="100px">
-                    <!-- <img src="{{ Storage::disk('s3')->url('defaultLiveImage.jpg')}}" width="100px" height="100px">-->
+                    <img src="{{ asset('/images/defaultLiveImage.jpg')}}" width="100px" height="100px">
                     @else
                     <img src="{{ Storage::disk('s3')->url($live->live_image)}}" width="100px" height="100px">
                     @endif

@@ -8,7 +8,7 @@
     @if($live->live_image === null)
         {{--ライブイメージが格納されていない場合--}}
         {{--予め設定していたデフォルトの画像を表示--}}
-        <img src="{{ asset('/images/defaultLiveImage.jpg')}}" width="200px" height="200px">
+        <img src="{{ asset('/images/default_live_image.jpg')}}" width="200px" height="200px">
     @else
         <img src="{{ Storage::disk('s3')->url($live->live_image)}}" width="200px" height="200px">
     @endif

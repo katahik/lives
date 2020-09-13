@@ -46,8 +46,8 @@
                 <!--デフォルト画像はstorage/app/publicに保存するが、呼び出すときは/storage /はpublicの意味-->
                 <td>
                     @if($live->live_image === null)
-<!--                    <img src="/storage/defaultLiveImage.jpg" width="100px" height="100px">-->
-                    <img src="{{ Storage::disk('s3')->url('defaultLiveImage.jpg')}}" width="100px" height="100px">
+                    <img src="/storage/defaultLiveImage.jpg" width="100px" height="100px">
+                    <!-- <img src="{{ Storage::disk('s3')->url('defaultLiveImage.jpg')}}" width="100px" height="100px">-->
                     @else
                     <img src="{{ Storage::disk('s3')->url($live->live_image)}}" width="100px" height="100px">
                     @endif

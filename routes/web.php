@@ -11,17 +11,15 @@
 |
 */
 
-//test
-Route::get('test2', function () {
-    return view('test2');
-});
 
 //ログインしなくても見れる群
 
 //トップページ
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Route::get('/','TopController@top');
+
 
 //会員登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');

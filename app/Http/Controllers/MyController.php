@@ -15,17 +15,15 @@ use Illuminate\Support\Facades\DB;
 // CreateLiveで設定したバリデーションをよみこむ
 use App\Http\Requests\CreateLive;
 
-class TopController extends Controller
+class MyController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    // top画面を 表示させる
-    public function top()
+    public function user(Request $request)
     {
-        //ライブ一覧で表示
-        return view('welcome');
+        return $request->user();
     }
 }

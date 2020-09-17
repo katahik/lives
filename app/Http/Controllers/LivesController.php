@@ -12,8 +12,9 @@ use Carbon\Carbon;
 use Log;
 use Illuminate\Support\Facades\DB;
 
-// CreateLiveで設定したバリデーションをよみこむ
+// CreateLive(Edit)で設定したバリデーションをよみこむ
 use App\Http\Requests\CreateLive;
+use App\Http\Requests\EditLive;
 
 class LivesController extends Controller
 {
@@ -152,7 +153,7 @@ class LivesController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(EditLive $request,int $id)
     {
         $live = Live::findOrFail($id);
         // それぞれのカラムにフォームの値を入れ込む

@@ -3,7 +3,15 @@
 @section('headerText')
     {{ $live->title }} を編集する
 @endsection
-
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row">
         <div class="col-6">
             {{-- 'files' => trueを記入することでフォームにenctype="multipart/form-data"属性が付与--}}

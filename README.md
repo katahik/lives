@@ -3,9 +3,9 @@ Lives
 
 あなたの周辺の今日のライブを検索できます。
 
-[Lives](https://google.com)
+[Lives](https://lives.buzz/)
 [![lives_top](https://user-images.githubusercontent.com/61921814/93006567-b80e4b00-f598-11ea-9825-9dea874e3468.png)
-](https://google.com)
+](https://lives.buzz/)
 
 ## 主な機能
 ### 位置情報利用した検索機能

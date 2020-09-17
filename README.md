@@ -31,7 +31,7 @@ Lives
 * データベース
     + mysql 8.0.21
 * その他
-    + docker/docker-compose/colorlib.
+    + docker/docker-compose/colorlib./SSL対応
 ## 構成図
 
 ![Configuration ](https://user-images.githubusercontent.com/61921814/93011683-38ea3880-f5d3-11ea-8f69-3ff2d27cb15b.png)

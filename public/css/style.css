@@ -67,3 +67,11 @@ td a {
 .footer-area .container .footer-bottom {
     border: none;
 }
+/*カレンダーの月変更ボタン(<>)の色変更*/
+main .sample-text-area .container.box_1170 .row a {
+    color: #1c2e4c;
+}
+/*ライブ一覧画面のライブ新規作成ボタンのフォントカラー変更*/
+main .sample-text-area .container.box_1170 .row form a.btn {
+    color: white;
+}

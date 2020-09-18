@@ -277,6 +277,9 @@ class LivesController extends Controller
             'lat' => $lat,
             // 現在地経度lngをbladeへ渡す
             'lng' => $lng,
+            // 検索条件に使った日にちを次の詳細検索ページでも引き継いで表示させるため
+            // ここで得たdateを渡す
+            'date'=>$date,
         ]);
     }
 }

@@ -45,9 +45,10 @@
                         {!! Form::text('freeword', old('title'), ['class' => 'col-md-10 form-control','placeholder' => 'フリーワード']) !!}
                     </div>
 
+                    {{--$dateで前検索で用いた日にちをデフォルトで表示させる--}}
                     <div class="form-group row">
                         {!! Form::label('date', '日にち:',['class'=>"col-md-2 col-form-label date"]) !!}
-                        {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-md-10 form-control']) !!}
+                        {!! Form::date('date', $date, ['class' => 'col-md-10 form-control']) !!}
                     </div>
 
                     {{--隠しフォームでlivescontrollerに位置情報を渡す--}}

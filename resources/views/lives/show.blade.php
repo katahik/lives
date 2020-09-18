@@ -26,12 +26,16 @@
             <td>{{ $live->venue }}</td>
         </tr>
         <tr>
-            <th>カテゴリー</th>
-            <td>{{ $live->category }}</td>
+            <th>会場住所</th>
+            <td>{{ $live->address }}</td>
         </tr>
         <tr>
             <th>アーティスト</th>
             <td>{{ $live->artist }}</td>
+        </tr>
+        <tr>
+            <th>カテゴリー</th>
+            <td>{{ $live->category }}</td>
         </tr>
         <tr>
             <th>チケット最低値</th>

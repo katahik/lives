@@ -42,6 +42,7 @@
                 <td>{{ $live->min_fee }}</td>
                 <td>{{ $live->max_fee }}</td>
                 <td>{{ $live->user_id }}</td>
+<!--                <td>{{ $live->user_id }}</td>-->
                 <!--live_imageに何も保存されていなかったらデフォルト画像を表示-->
                 <!--デフォルト画像はpublic/imagesに保存するが、呼び出すときは/images /はpublicの意味-->
                 <td>

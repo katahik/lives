@@ -14,7 +14,6 @@
             <th>id</th>
             <th>name</th>
             <th>mail</th>
-            <th>pass</th>
             <th>role</th>
         </tr>
         </thead>
@@ -25,7 +24,6 @@
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->password }}</td>
             <td>{{ $user->role }}</td>
         </tr>
         @endforeach
@@ -33,5 +31,5 @@
     </table>
     @endif
     {!! Form::close() !!}
-
+{{ $users->links() }}
 @endsection

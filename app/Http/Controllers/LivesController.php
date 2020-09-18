@@ -72,6 +72,7 @@ class LivesController extends Controller
         $live->title = $request->title;
         $live->date = $request->date;
         $live->venue = $request->venue;
+        $live->address = $request->address;
         $live->category = $request->category;
         $live->artist = $request->artist;
         $live->min_fee = $request->min_fee;
@@ -160,6 +161,7 @@ class LivesController extends Controller
         $live->title = $request->title;
         $live->date = $request->date;
         $live->venue = $request->venue;
+        $live->address = $request->address;
         $live->category = $request->category;
         $live->artist = $request->artist;
         $live->min_fee = $request->min_fee;

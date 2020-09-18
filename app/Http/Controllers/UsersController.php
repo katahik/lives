@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = DB::table('users')->paginate(20);
         return view('users.index', [
-            'users' => $users
+            'users' => $users,
         ]);
     }
 

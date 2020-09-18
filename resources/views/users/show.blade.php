@@ -68,7 +68,7 @@
                                 {{--$dateをformat('Y-m-d')で整形(2020-08-21等)--}}
                                 {{--$wentLive->dateの方はMySQLのデフォルトで2020-08-21に整形されている--}}
                                 @if($date->copy()->format('Y-m-d') === $wentLive->date )
-                                    <br>{!! link_to_route('lives.show', substr($wentLive->title,0,4)."...", ['live' => $wentLive->id]) !!}
+                                    <br>{!! link_to_route('lives.show', mb_substr($wentLive->title,0,4)."...", ['live' => $wentLive->id]) !!}
                                 @endif
                             @endforeach
                         </td>

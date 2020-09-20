@@ -17,7 +17,7 @@ Lives
 * データベース
     + mysql 8.0.21
 * その他
-    + docker/docker-compose/colorlib./SSL対応
+    + GoogleMapsAPI / docker / docker-compose / colorlib. / SSL対応
 ## 主な機能
 ### 位置情報を利用した検索機能
 * 現在地取得

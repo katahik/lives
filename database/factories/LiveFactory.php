@@ -25,6 +25,7 @@ $factory->define(Live::class, function (Faker $faker) {
         'title' => $faker->word,//言葉
         'date' => $faker->date(),//日にち
         'venue' => $faker->locale,//場所
+        'address' => $faker->address,//住所
         'category' => $faker->randomElement($randomCategory),//カテゴリー候補からランダムに選択
         'artist' => $faker->name,//名前
         'min_fee' => $faker->numberBetween(0, 1000),//0から1000のランダムな数字

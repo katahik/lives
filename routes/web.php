@@ -14,12 +14,11 @@
 
 //ログインしなくても見れる群
 
-//トップページ
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+
 Route::get('/','TopController@top');
 
+//ゲストログイン機能ルート
+Route::get('guest', 'Auth\LoginController@authenticate')->name('login.guest');
 
 //会員登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');

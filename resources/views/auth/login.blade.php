@@ -28,6 +28,9 @@
                         {!! Form::close() !!}
 
                         {{-- ユーザ登録ページへのリンク --}}
+                        <br>
+                        {{--ゲストユーザーとしてログインするボタン実装--}}
+                        {!! link_to_route('login.guest', 'ゲストユーザーとしてログイン', [], ['class' => 'btn btn-success btn-block']) !!}
                         <p class="mt-2">New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>
                     </div>
                 </div>

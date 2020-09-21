@@ -36,9 +36,9 @@ class DatabaseSeeder extends Seeder
             'role' => 11,
         ]);
         App\User::create([
-            'name' => '片平 康太',
-            'email' => 'kotakatahira@gmail.com',
-            'password' => Hash::make('00000000'), // この場合、「00000000」でログインできる
+            'name' => 'ゲストユーザー',
+            'email' => 'guest@guest.com',
+            'password' => Hash::make('guestpass'), // この場合、「guestpass」でログインできる
             'remember_token' => str_random(10),
             'role' => 1,
         ]);

@@ -29,7 +29,7 @@ Lives
 * 通常の画面上からのユーザー登録では、一般ユーザーとして登録する仕様
     + 管理者 Email : admin@gmail.com Password : 00000000
     + 主催者 Email : host1@gmail.com Password : 00000000
-    + 一般ユーザー Email : kotakatahira@gmail.com Password : 00000000
+    + ゲストユーザー Email : guest@guest.com Password : guestpass （簡単ログインでボタン一つでログインできます）
 ### 「行ったライブ」機能
 * 自分の行ったライブを登録することができる。
 * 行ったライブをカレンダーに表示することができ、いつ何のライブに行ったかが分かる

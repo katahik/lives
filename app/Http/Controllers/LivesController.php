@@ -154,7 +154,7 @@ class LivesController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(EditLive $request,int $id)
+    public function update(EditLive $request, int $id)
     {
         $live = Live::findOrFail($id);
         // それぞれのカラムにフォームの値を入れ込む
@@ -234,10 +234,10 @@ class LivesController extends Controller
         $floatLng = (float)$lng;
 
         // 半径(正方形)5kmあたりの緯度経度を計算（config/const.phpから5kmあたりの緯度経度の値をもってくる）
-        $maxLat=$floatLat+(config('const.latPer5Km'));
-        $minLat=$floatLat-(config('const.latPer5Km'));
-        $maxLng=$floatLng+(config('const.lngPer5Km'));
-        $minLng=$floatLng-(config('const.lngPer5Km'));
+        $maxLat = $floatLat + (config('const.latPer5Km'));
+        $minLat = $floatLat - (config('const.latPer5Km'));
+        $maxLng = $floatLng + (config('const.lngPer5Km'));
+        $minLng = $floatLng - (config('const.lngPer5Km'));
 
         // $dateに値があったらその値から検索、なかったら今日の日付から検索
         if (!empty($date)) {
@@ -279,7 +279,7 @@ class LivesController extends Controller
             'lng' => $lng,
             // 検索条件に使った日にちを次の詳細検索ページでも引き継いで表示させるため
             // ここで得たdateを渡す
-            'date'=>$date,
+            'date' => $date,
         ]);
     }
 }

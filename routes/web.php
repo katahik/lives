@@ -15,7 +15,7 @@
 //ログインしなくても見れる群
 
 
-Route::get('/','TopController@top');
+Route::get('/', 'TopController@top');
 
 //ゲストログイン機能ルート
 Route::get('guest', 'Auth\LoginController@authenticate')->name('login.guest');

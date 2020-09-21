@@ -19,10 +19,10 @@ class CreateGoingTable extends Migration
             $table->unsignedBigInteger('live_id');
             $table->timestamps();
 
-//            外部キー制約
+            // 外部キー制約
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('live_id')->references('id')->on('lives')->onDelete('cascade');
-//            user_idとlive_idの組み合わせの重複を許さない
+            // user_idとlive_idの組み合わせの重複を許さない
             $table->unique(['user_id', 'live_id']);
         });
     }

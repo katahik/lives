@@ -32,8 +32,10 @@ $factory->define(Live::class, function (Faker $faker) {
         'min_fee' => $faker->numberBetween(0, 1000),//0から1000のランダムな数字
         'max_fee' => $faker->numberBetween(1001, 10000),//1001から10000のランダムな数字
         'url' => $faker->url,//url
-        'lat' => $faker->latitude,//緯度
-        'lng' => $faker->longitude,//経度
+        //config/constで定義したsampleLatをランダムで入れる
+        'lat' => $faker->randomElement(config('const.sampleLat')),
+        //config/constで定義したsampleLngをランダムで入れる
+        'lng' => $faker->randomElement(config('const.sampleLng')),
         'user_id' => $faker->numberBetween(1, 2, 3),//1か2か3の数値
         'setlist' => $faker->word,//言葉
     ];

@@ -23,7 +23,8 @@ $factory->define(Live::class, function (Faker $faker) {
     $randomCategory = array("ポップス", "ロック", "ヒップホップ", "レゲエ", "ジャズ", "パンク", "テクノ", "ハウス", "R&B", "");
     return [
         'title' => $faker->word,//言葉
-        'date' => $faker->date(),//日にち
+        //今日から2週間後までのランダムな日付時刻
+        'date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 week'),//日にち
         'venue' => $faker->locale,//場所
         'address' => $faker->address,//住所
         'category' => $faker->randomElement($randomCategory),//カテゴリー候補からランダムに選択

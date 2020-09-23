@@ -11,6 +11,6 @@ class LivesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Live::class, 20)->create();
+        factory(App\Live::class, 100)->create();
     }
 }

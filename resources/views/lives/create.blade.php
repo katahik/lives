@@ -23,33 +23,33 @@
             {{Form::token()}}
 
             <div class="form-group row">
-                {!! Form::label('title', 'ライブ名:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('title', old('title'), ['class' => 'col-10 form-control']) !!}
+                {!! Form::label('title', 'ライブ名(必須):',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('title', old('title'), ['class' => 'col-10 form-control','placeholder' => 'UMK SEAGAIA JamNight 2020']) !!}
             </div>
 
             <div class="form-group row">
-                {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label date"]) !!}
+                {!! Form::label('date', '日にち(必須):',['class'=>"col-2 col-form-label date"]) !!}
                 {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-10 form-control']) !!}
             </div>
 
             <div class="form-group row">
-                {!! Form::label('venue', '会場:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('venue', old('venue'), ['class' => 'col-10 form-control']) !!}
+                {!! Form::label('venue', '会場(必須):',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('venue', old('venue'), ['class' => 'col-10 form-control','placeholder' =>'シーガイアスクエア1']) !!}
             </div>
 
             {{-- 緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できる--}}
             <div class="form-group row">
-                {!! Form::label('address', '会場住所:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('address',  old('address'), ['class' => 'col-10 form-control','id'=>'addressInput']) !!}
+                {!! Form::label('address', '会場住所(必須):',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('address',  old('address'), ['class' => 'col-10 form-control','id'=>'addressInput','placeholder' =>'宮崎県宮崎市山崎町浜山']) !!}
             </div>
             <div id="searchGeo" class="btn btn-primary">緯度経度変換</div>
             <div class="form-group row">
-                {!! Form::label('lat', '緯度:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::label('lat', '緯度(必須):',['class'=>"col-2 col-form-label"]) !!}
                 {{--第3引数に'readonly'を入れることで、ユーザーが直接緯度経度をいじれないようにする--}}
                 {!! Form::text('lat', old('lat'), ['class' => 'col-10 form-control','id'=>"lat", 'readonly']) !!}
             </div>
             <div class="form-group row">
-                {!! Form::label('lng', '経度:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::label('lng', '経度(必須):',['class'=>"col-2 col-form-label"]) !!}
                 {{--第3引数に'readonly'を入れることで、ユーザーが直接緯度経度をいじれないようにする--}}
                 {!! Form::text('lng', old('lng'), ['class' => 'col-10 form-control','id'=>"lng",'readonly']) !!}
             </div>
@@ -64,16 +64,16 @@
                                 old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'カテゴリーを指定しない']) !!}
             </div>
             <div class="form-group row">
-                {!! Form::label('artist', 'アーティスト:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('artist', old('artist'), ['class' => 'col-10 form-control']) !!}
+                {!! Form::label('artist', 'アーティスト(必須):',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('artist', old('artist'), ['class' => 'col-10 form-control','placeholder' =>'アーティスト名']) !!}
             </div>
             <div class="form-group row">
-                {!! Form::label('min_fee', 'チケット最低値:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('min_fee', old('min_fee'), ['class' => 'col-10 form-control']) !!}
+                {!! Form::label('min_fee', 'チケット最低値(必須):',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('min_fee', old('min_fee'), ['class' => 'col-10 form-control','placeholder' =>'2500']) !!}
             </div>
             <div class="form-group row">
-                {!! Form::label('max_fee', 'チケット最高値:',['class'=>"col-2 col-form-label"]) !!}
-                {!! Form::text('max_fee', old('max_fee'), ['class' => 'col-10 form-control']) !!}
+                {!! Form::label('max_fee', 'チケット最高値(必須):',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::text('max_fee', old('max_fee'), ['class' => 'col-10 form-control','placeholder' =>'3000']) !!}
             </div>
             <div class="form-group row">
                 {!! Form::label('url', 'URL:',['class'=>"col-2 col-form-label"]) !!}

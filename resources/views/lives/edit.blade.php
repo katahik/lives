@@ -13,30 +13,30 @@
         </div>
     @endif
     <div class="row">
-        <div class="col-6">
+        <div class="col-12">
             {{-- 'files' => trueを記入することでフォームにenctype="multipart/form-data"属性が付与--}}
             {{-- ※'files' => trueは、createの方では、route=[]内に書いたが、ここでは[]外に記入--}}
             {!! Form::model($live, ['route' => ['lives.update',$live->id ],'files' => true, 'method' => 'put']) !!}
             {{Form::token()}}
 
             <div class="form-group row">
-                {!! Form::label('title', 'ライブ名:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::label('title', 'ライブ名(必須):',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('title', old('title'), ['class' => 'col-10 form-control']) !!}
             </div>
 
             <div class="form-group row">
-                {!! Form::label('date', '日にち:',['class'=>"col-2 col-form-label date"]) !!}
+                {!! Form::label('date', '日にち(必須):',['class'=>"col-2 col-form-label date"]) !!}
                 {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'col-10 form-control']) !!}
             </div>
 
             <div class="form-group row">
-                {!! Form::label('venue', '会場:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::label('venue', '会場(必須):',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('venue', old('venue'), ['class' => 'col-10 form-control']) !!}
             </div>
 
             {{--緯度経度を直接打ち込むのでなく、住所を入力したら、緯度経度を保存できるようにする--}}
             <div class="form-group row">
-                {!! Form::label('address', '会場住所:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::label('address', '会場住所(必須):',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('address',  old('address'), ['class' => 'col-10 form-control','id'=>'addressInput']) !!}
             </div>
             <div id="searchGeo" class="btn btn-primary">緯度経度変換</div>
@@ -61,15 +61,15 @@
                                 old('category'), ['class' => 'col-10 form-control' ,'placeholder' => 'カテゴリーを指定しない']) !!}
             </div>
             <div class="form-group row">
-                {!! Form::label('artist', 'アーティスト:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::label('artist', 'アーティスト(必須):',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('artist', old('artist'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
-                {!! Form::label('min_fee', 'チケット最低値:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::label('min_fee', 'チケット最低値(必須):',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('min_fee', old('min_fee'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">
-                {!! Form::label('max_fee', 'チケット最高値:',['class'=>"col-2 col-form-label"]) !!}
+                {!! Form::label('max_fee', 'チケット最高値(必須):',['class'=>"col-2 col-form-label"]) !!}
                 {!! Form::text('max_fee', old('max_fee'), ['class' => 'col-10 form-control']) !!}
             </div>
             <div class="form-group row">

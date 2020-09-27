@@ -26,18 +26,18 @@
 </head>
 
 <body>
-<!-- Preloader Start -->
-<div id="preloader-active">
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-                <img src="{{ asset('/assets/img/logo/loder.jpg')}}" >
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Preloader Start -->
+{{--画面遷移が遅くなることからローダーの削除--}}
+{{--<!-- Preloader Start -->--}}
+{{--<div id="preloader-active">--}}
+{{--    <div class="preloader d-flex align-items-center justify-content-center">--}}
+{{--        <div class="preloader-inner position-relative">--}}
+{{--            <div class="preloader-circle"></div>--}}
+{{--            <div class="preloader-img pere-text">--}}
+{{--                <img src="{{ asset('/assets/img/logo/loder.jpg')}}" >--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 @include('commons.navbar')
 
 {{--ヘッダー画像とヘッダー文字--}}

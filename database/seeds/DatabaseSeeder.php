@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         App\User::create([
             'name' => '管理者',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('00000000'), // この場合、「00000000」でログインできる
+            'password' => Hash::make('12345678'), // この場合、「12345678」でログインできる
             'remember_token' => str_random(10),
             'role' => '99'
         ]);
@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         App\User::create([
             'name' => '主催者1',
             'email' => 'host1@gmail.com',
-            'password' => Hash::make('00000000'), // この場合、「00000000」でログインできる
+            'password' => Hash::make('12345678'), // この場合、「12345678」でログインできる
             'remember_token' => str_random(10),
             'role' => 10,
         ]);
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         App\User::create([
             'name' => '主催者2',
             'email' => 'host2@gmail.com',
-            'password' => Hash::make('00000000'), // この場合、「00000000」でログインできる
+            'password' => Hash::make('12345678'), // この場合、「12345678」でログインできる
             'remember_token' => str_random(10),
             'role' => 11,
         ]);

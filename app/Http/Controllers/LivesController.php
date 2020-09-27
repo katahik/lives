@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Utils\CalcDistance;
 use App\Utils\Upload;
 use Illuminate\Http\Request;
 use App\Live;

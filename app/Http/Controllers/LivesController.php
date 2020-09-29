@@ -223,7 +223,7 @@ class LivesController extends Controller
         $lng = $request->lng;
 
 
-        // debug機能 storage/logsの中に吐き出される
+        // debug機能 ログはstorage/logsの中に吐き出される
         Log::debug('$freeword="' . $freeword . '"');
         Log::debug('$date="' . $date . '"');
         Log::debug('$category="' . $category . '"');

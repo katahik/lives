@@ -1,6 +1,16 @@
 @extends('layouts.app')
 @section('headerText')
-    今日のライブ
+    {{-- 結果タイトルにて、日付を指定したときは、その日付、何も指定していないときは「今日のライブ」を表示させる--}}
+    @if(!empty($date))
+        <h3>
+            {{-- 日付のフォーマット変換--}}
+            {{ date('m月d日',  strtotime($date)) }}のライブ
+        </h3>
+    @else
+        <h3>
+            今日のライブ
+        </h3>
+    @endif
 @endsection
 @section('content')
     <!-- Start Sample Area -->

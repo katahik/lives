@@ -29,9 +29,9 @@ Lives
 * 通常の画面上からのユーザー登録では、一般ユーザーとして登録する仕様
     + 管理者 Email : admin@gmail.com Password : 12345678
     + 主催者 Email : host1@gmail.com Password : 12345678
-    + ゲストユーザー Email : guest@guest.com Password : guestpass （簡単ログインでボタン一つでログインできます）
+    + ゲストユーザー Email : guest@guest.com Password : guestpass （簡単ログインでボタン一つでログイン）
 ### 「行ったライブ」機能
-* 自分の行ったライブを登録することができる。
+* 自分の行ったライブを登録することができる
 * 行ったライブをカレンダーに表示することができ、いつ何のライブに行ったかが分かる
 * カレンダーの表示をクリックすることで、ライブ詳細画面へ遷移可能
 
